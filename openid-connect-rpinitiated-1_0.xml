@@ -368,12 +368,31 @@
       </section>
     </section>
 
-    <section anchor="Validation" title="Validation">
+    <section anchor="Validation and Error Handling" title="ValidationAndErrorHandling">
 
       <t>
 	If any of the validation procedures defined in this specification fail, any operations requiring
 	the information that failed to correctly validate MUST be aborted and
 	the information that failed to validate MUST NOT be used.
+      </t>
+      <t>
+	As described in <xref target="RedirectionAfterLogout"/>,
+	when the OP detects errors in the RP-Initiated Logout request,
+	the OP MUST not perform post-logout redirection to an RP.
+	Beyond that, the OP has discretion on what information to display to the End-User
+	in the resulting page at the OP
+	and what actions to enable the End-User to perform next.
+	It MAY display an error message.
+	It MAY ask the End-User whether to log out of the OP.
+      </t>
+      <t>
+	Note that giving the End-User the opportunity to log out may have security benefits,
+	especially in kiosk scenarios.
+	The End-User initiating a logout action at the RP may expect to be completely logged out,
+	including from the OP.
+	Not giving the End-User the opportunity to log out at the OP
+	and leaving the End-User logged in would likely violate the End-User's security expectations
+	about being completely logged out.
       </t>
 
     </section>
@@ -700,6 +719,9 @@
         <list style="symbols">
 	  <t>
 	    Updated contributor affiliations.
+	  </t>
+	  <t>
+	    Fixed #1183, #1184, and #1216 - Described error handling.
 	  </t>
 	</list>
       </t>
