@@ -201,11 +201,13 @@
 	    OPTIONAL.
 	    OAuth 2.0 Client Identifier valid at the Authorization Server. When both
 	    <spanx style="verb">client_id</spanx> and <spanx style="verb">id_token_hint</spanx>
+	    are present,
 	    the OP MUST verify that the Client Identifier matches the one used when issuing the
 	    ID Token. The most common use case for this parameter is to specify the Client Identifier
 	    when <spanx style="verb">post_logout_redirect_uri</spanx> is used but
 	    <spanx style="verb">id_token_hint</spanx> is not. Another use is for
-	    symmetrically encrypted ID Tokens that require the Client Identifier
+	    symmetrically encrypted ID Tokens used as <spanx style="verb">id_token_hint</spanx> values
+	    that require the Client Identifier
 	    to be specified by other means, so that the ID Tokens can be decrypted by the OP.
 	  </t>
 	  <t hangText="post_logout_redirect_uri">
@@ -281,10 +283,10 @@
       <t>
 	At the Logout Endpoint, the OP SHOULD ask the End-User whether
 	to log out of the OP as well.
-	Furthermore, if an <spanx style="verb">id_token_hint</spanx> was not provided
+	Furthermore, the OP MUST ask the End-User this question
+	if an <spanx style="verb">id_token_hint</spanx> was not provided
 	or if the supplied ID Token does not belong to the current OP session with the RP
-	and/or currently logged in End-User,
-	then the OP MUST ask the End-User this question.
+	and/or currently logged in End-User.
 	If the End-User says "yes", then the OP MUST log out the End-User.
       </t>
       <t>
