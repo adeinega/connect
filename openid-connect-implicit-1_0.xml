@@ -66,7 +66,7 @@
       </address>
     </author>
 
-    <date day="14" month="March" year="2022" />
+    <date day="18" month="April" year="2022" />
 
     <workgroup>OpenID Connect Working Group</workgroup>
 
@@ -2896,7 +2896,7 @@
             <organization abbrev="Stripe">Stripe</organization>
           </author>
 
-	  <date day="14" month="March" year="2022" />
+	  <date day="18" month="April" year="2022" />
         </front>
       </reference>
 
