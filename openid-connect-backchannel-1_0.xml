@@ -23,7 +23,7 @@
 
   <front>
     <title abbrev="OpenID Connect Back-Channel Logout 1.0">OpenID Connect
-    Back-Channel Logout 1.0 - draft 07</title>
+    Back-Channel Logout 1.0 - draft 08</title>
 
     <author fullname="Michael B. Jones" initials="M.B." surname="Jones">
       <organization abbrev="Microsoft">Microsoft</organization>
@@ -41,7 +41,7 @@
       </address>
     </author>
 
-    <date day="18" month="April" year="2022" />
+    <date day="23" month="April" year="2022" />
 
     <workgroup>OpenID Connect Working Group</workgroup>
 
@@ -472,6 +472,10 @@
 	    <t>
 	      Validate the Logout Token signature in the same way that
 	      an ID Token signature is validated, with the following refinements.
+	    </t>
+	    <t>
+	      Validate the <spanx style="verb">alg</spanx> (algorithm)
+	      Header Parameter in the same way it is validated in ID Tokens.
 	    </t>
 	    <t>
 	      Validate the <spanx style="verb">iss</spanx>,
@@ -1107,6 +1111,15 @@
 
     <section anchor="History" title="Document History">
       <t>[[ To be removed from the final specification ]]</t>
+
+      <t>
+	-08
+        <list style="symbols">
+	  <t>
+	    Fixed #1476 - Describe <spanx style="verb">alg</spanx> Header Parameter validation for Logout Tokens.
+	  </t>
+	</list>
+      </t>
 
       <t>
 	-07
