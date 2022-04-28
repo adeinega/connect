@@ -41,7 +41,7 @@
       </address>
     </author>
 
-    <date day="19" month="April" year="2022" />
+    <date day="27" month="April" year="2022" />
 
     <workgroup>OpenID Connect Working Group</workgroup>
 
@@ -620,6 +620,11 @@
 	  <spanx style="verb">typ</spanx> (type) Header Parameter with a value of
 	  <spanx style="verb">logout+jwt</spanx>
 	  (which is registered in <xref target="MediaContents"/>.
+	  Note that the <spanx style="verb">application/</spanx> portion of the
+	  <spanx style="verb">application/logout+jwt</spanx> media type name is omitted
+	  when used as a <spanx style="verb">typ</spanx> Header Parameter value,
+	  as described in the <spanx style="verb">typ</spanx> definition
+	  in Section 4.1.9 <xref target="JWS"/>.
 	  Including an explicit type in issued Logout Tokens is a best practice.
 	  Note however, that requiring explicitly typed Logout Tokens
 	  will break most existing deployments,
@@ -1039,6 +1044,30 @@
       <?rfc include="http://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.8414"?>
       <?rfc include="http://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.8417"?>
       <?rfc include="http://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.8725"?>
+
+      <reference anchor="JWS" target="https://tools.ietf.org/html/rfc7515">
+	<front>
+	  <title>JSON Web Signature (JWS)</title>
+
+	  <author fullname="Michael B. Jones" initials="M.B." surname="Jones">
+	    <organization abbrev="Microsoft">Microsoft</organization>
+	  </author>
+
+	  <author fullname="John Bradley" initials="J." surname="Bradley">
+	    <organization abbrev="Ping Identity">Ping Identity</organization>
+	  </author>
+
+	  <author fullname="Nat Sakimura" initials="N." surname="Sakimura">
+	    <organization abbrev="NRI">Nomura Research Institute, Ltd.</organization>
+	  </author>
+
+	  <date month="May" year="2015" />
+	</front>
+
+	<seriesInfo name="RFC" value="7515"/>
+	<seriesInfo name="DOI" value="10.17487/RFC7515"/>
+      </reference>
+
     </references>
 
     <section anchor="Acknowledgements" title="Acknowledgements">
@@ -1108,7 +1137,11 @@
 	-08
         <list style="symbols">
 	  <t>
-	    Removed a note about possibly adding a mechanism to request revocation of
+	    Fixed #1484 - Described omission of the <spanx style="verb">application/</spanx>
+	    prefix in <spanx style="verb">typ</spanx> Header Parameter values.
+	  </t>
+	  <t>
+	    Fixed #1475 - Removed a note about possibly adding a mechanism to request revocation of
 	    <spanx style="verb">offline_access</spanx> refresh tokens.
 	  </t>
 	</list>
