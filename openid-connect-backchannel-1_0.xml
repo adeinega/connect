@@ -41,7 +41,7 @@
       </address>
     </author>
 
-    <date day="27" month="April" year="2022" />
+    <date day="2" month="May" year="2022" />
 
     <workgroup>OpenID Connect Working Group</workgroup>
 
@@ -553,10 +553,8 @@
       <section anchor="BCResponse" title="Back-Channel Logout Response">
 	<t>
 	  If the logout succeeded, the RP MUST respond with HTTP 200 OK.
-	  If the logout request was invalid, the RP MUST respond with HTTP 400 Bad Request.
-	  If the logout failed, the RP MUST respond with 501 Not Implemented.
-	  If the local logout succeeded but some downstream logouts have failed,
-	  the RP MUST respond with HTTP 504 Gateway Timeout.
+	  If the logout request was invalid or the logout failed,
+	  the RP MUST respond with HTTP 400 Bad Request.
 	</t>
 	<t>
 	  The RP's response SHOULD include <spanx style="verb">Cache-Control</spanx>
@@ -1144,6 +1142,10 @@
 	  <t>
 	    Fixed #1475 - Removed a note about possibly adding a mechanism to request revocation of
 	    <spanx style="verb">offline_access</spanx> refresh tokens.
+	  </t>
+	  <t>
+	    Fixed #1487 - Simplified error handing to use HTTP 400 Bad Request for all error cases,
+	    removing the use of HTTP 501 Not Implemented and HTTP 504 Gateway Timeout.
 	  </t>
 	</list>
       </t>
