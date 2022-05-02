@@ -41,7 +41,7 @@
       </address>
     </author>
 
-    <date day="30" month="April" year="2022" />
+    <date day="2" month="May" year="2022" />
 
     <workgroup>OpenID Connect Working Group</workgroup>
 
@@ -559,10 +559,11 @@
 	  the RP MUST respond with HTTP 504 Gateway Timeout.
 	</t>
 	<t>
-	  The RP's response SHOULD include a <spanx style="verb">Cache-Control</spanx>
-	  directive keeping the response from being cached to prevent cached responses
+	  The RP's response SHOULD include the <spanx style="verb">Cache-Control</spanx>
+	  HTTP response header field with a <spanx style="verb">no-store</spanx> value,
+	  keeping the response from being cached to prevent cached responses
 	  from interfering with future logout requests.
-	  It is RECOMMENDED that this directive be used:
+	  An example of this is:
 	</t>
 	<figure><artwork><![CDATA[
   Cache-Control: no-store
@@ -1079,6 +1080,7 @@
         <list style="empty">
           <t>John Bradley (ve7jtb@ve7jtb.com), Yubico</t>
 	  <t>Brian Campbell (bcampbell@pingidentity.com), Ping Identity</t>
+	  <t>Andrii Deinega (andrii.deinega@gmail.com), GlobalLogic</t>
 	  <t>Vladimir Dzhuvinov (vladimir@connect2id.com), Connect2id</t>
 	  <t>Pedro Felix (pmhsfelix@gmail.com), individual</t>
 	  <t>Joseph Heenan (joseph@authlete.com), Authlete</t>
