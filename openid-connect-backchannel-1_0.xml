@@ -482,10 +482,8 @@
 	      and the <spanx style="verb">id_token_signed_response_alg</spanx> Registration parameter
 	      when they are used;
 	      otherwise, the value SHOULD be the default of <spanx style="verb">RS256</spanx>.
-	      The one additional validation requirement is that, unlike for ID Tokens when
-	      a <spanx style="verb">response_type</spanx> of <spanx style="verb">code</spanx> is used,
-	      an <spanx style="verb">alg</spanx> with the value <spanx style="verb">none</spanx>
-	      MUST NOT be used for Logout Tokens.
+	      Additionally, an <spanx style="verb">alg</spanx> with the value
+	      <spanx style="verb">none</spanx> MUST NOT be used for Logout Tokens.
 	    </t>
 	    <t>
 	      Validate the <spanx style="verb">iss</spanx>,
