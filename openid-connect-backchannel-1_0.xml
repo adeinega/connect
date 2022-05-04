@@ -41,7 +41,7 @@
       </address>
     </author>
 
-    <date day="2" month="May" year="2022" />
+    <date day="4" month="May" year="2022" />
 
     <workgroup>OpenID Connect Working Group</workgroup>
 
@@ -475,6 +475,17 @@
 	      an ID Token signature is validated, with the following refinements.
 	    </t>
 	    <t>
+	      Validate the <spanx style="verb">alg</spanx> (algorithm)
+	      Header Parameter in the same way it is validated for ID Tokens.
+	      Like ID Tokens, selection of the algorithm used is governed by
+	      the <spanx style="verb">id_token_signing_alg_values_supported</spanx> Discovery parameter
+	      and the <spanx style="verb">id_token_signed_response_alg</spanx> Registration parameter
+	      when they are used;
+	      otherwise, the value SHOULD be the default of <spanx style="verb">RS256</spanx>.
+	      Additionally, an <spanx style="verb">alg</spanx> with the value
+	      <spanx style="verb">none</spanx> MUST NOT be used for Logout Tokens.
+	    </t>
+	    <t>
 	      Validate the <spanx style="verb">iss</spanx>,
 	      <spanx style="verb">aud</spanx>,
 	      and <spanx style="verb">iat</spanx>
@@ -553,18 +564,21 @@
       <section anchor="BCResponse" title="Back-Channel Logout Response">
 	<t>
 	  If the logout succeeded, the RP MUST respond with HTTP 200 OK.
+	  However, note that some Web frameworks will substitute an HTTP 204 No Content response
+	  for an HTTP 200 OK when the HTTP body is empty.
+	  Therefore, OPs should be prepared to also process an HTTP 204 No Content response as a successful response.
 	  If the logout request was invalid or the logout failed,
 	  the RP MUST respond with HTTP 400 Bad Request.
 	</t>
 	<t>
-	  The RP's response SHOULD include <spanx style="verb">Cache-Control</spanx>
-	  directives keeping the response from being cached to prevent cached responses
+	  The RP's response SHOULD include the <spanx style="verb">Cache-Control</spanx>
+	  HTTP response header field with a <spanx style="verb">no-store</spanx> value,
+	  keeping the response from being cached to prevent cached responses
 	  from interfering with future logout requests.
-	  It is RECOMMENDED that these directives be used:
+	  An example of this is:
 	</t>
 	<figure><artwork><![CDATA[
-  Cache-Control: no-cache, no-store
-  Pragma: no-cache
+  Cache-Control: no-store
 ]]></artwork></figure>
       </section>
 
@@ -1078,6 +1092,7 @@
         <list style="empty">
           <t>John Bradley (ve7jtb@ve7jtb.com), Yubico</t>
 	  <t>Brian Campbell (bcampbell@pingidentity.com), Ping Identity</t>
+	  <t>Andrii Deinega (andrii.deinega@gmail.com), GlobalLogic</t>
 	  <t>Vladimir Dzhuvinov (vladimir@connect2id.com), Connect2id</t>
 	  <t>Pedro Felix (pmhsfelix@gmail.com), individual</t>
 	  <t>Joseph Heenan (joseph@authlete.com), Authlete</t>
@@ -1142,6 +1157,17 @@
 	  <t>
 	    Fixed #1475 - Removed a note about possibly adding a mechanism to request revocation of
 	    <spanx style="verb">offline_access</spanx> refresh tokens.
+	  </t>
+	  <t>
+	    Fixed #1483 - Removed Pragma: no-cache and Cache-Control: no-cache,
+	    leaving only Cache-Control: no-store.
+	  </t>
+	  <t>
+	    Fixed #1476 - Described <spanx style="verb">alg</spanx> Header Parameter validation for Logout Tokens.
+	  </t>
+	  <t>
+	    Fixed #1486 - Added a note about an HTTP 204 No Content response
+	    being substituted for an HTTP 200 OK response when the HTTP body is empty.
 	  </t>
 	  <t>
 	    Fixed #1487 - Simplified error handing to use HTTP 400 Bad Request for all error cases,
