@@ -41,7 +41,7 @@
       </address>
     </author>
 
-    <date day="18" month="May" year="2022" />
+    <date day="23" month="May" year="2022" />
 
     <workgroup>OpenID Connect Working Group</workgroup>
 
@@ -572,11 +572,18 @@
 	  If the logout request was invalid or the logout failed,
 	  the RP MUST respond with HTTP 400 Bad Request.
 	  The response MAY include an HTTP body consisting of a JSON object with
-	  <spanx style="verb">error</spanx> and <spanx style="verb">error_description</spanx> values
+	  <spanx style="verb">error</spanx> and <spanx style="verb">error_description</spanx> parameters
 	  conveying the nature of the error that occured, which can assist with debugging.
-	  These error response values are used as specified in Section 4.1.2.1 of <xref target="RFC6749">OAuth 2.0</xref>.
-	  In particular, an <spanx style="verb">error</spanx> value of <spanx style="verb">invalid_request</spanx>
+	  These error response parameters are used as specified in Section 4.1.2.1 of <xref target="RFC6749">OAuth 2.0</xref>.
+	  Like in OAuth 2.0, the parameters are included in the entity-body of the HTTP response
+	  using the <spanx style="verb">application/json</spanx> media type.
+	  Also like in OAuth 2.0, the <spanx style="verb">error</spanx> parameter is REQUIRED when a response body is present
+	  and the <spanx style="verb">error_description</spanx> parameter is OPTIONAL.
+	  An <spanx style="verb">error</spanx> value of <spanx style="verb">invalid_request</spanx>
 	  MAY be used to indicate that there was a problem with the syntax of the logout request.
+	  Note that information conveyed in the response body is intended to help implementers debug deployments;
+	  it is not intended that implementations use different <spanx style="verb">error</spanx> values
+	  to trigger different runtime behaviors.
 	</t>
 	<t>
 	  The RP's response SHOULD include the <spanx style="verb">Cache-Control</spanx>
@@ -1183,7 +1190,7 @@
 	  </t>
 	  <t>
 	    Fixed #1491 - Added optional <spanx style="verb">error</spanx> and <spanx style="verb">error_description</spanx>
-	    values to error responses.
+	    parameters to error responses.
 	  </t>
 	</list>
       </t>
