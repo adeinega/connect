@@ -692,8 +692,8 @@ The following table defines how issued Credential MUST be returned in the `crede
 
 | Credential Signature Format | Credential Format Identifier | Signature Scheme | Need for encoding when returning in the Credential Response  |
 |:------|:-----|:-----|:------------|
-|JWS Compact Serialization | `jwt_vc`, `mdl_iso_json` | Credential conformant to the W3C Verifiable Credentials Data Model, or ISO/IEC 18013-5:2021 mobile driving licence (mDL) data model, and signed as a JWS Compact Serialization. | MUST be a JSON string. Credential is already a sequence of base64url-encoded values separated by period characters and MUST NOT be re-encoded. |
-|JWS JSON Serialization | `jwt_vc`, `mdl_iso_json`| Credential conformant to the W3C Verifiable Credentials Data Model, or ISO/IEC 18013-5:2021 mobile driving licence (mDL) data model, and signed as a JWS JSON Serialization. | MUST be a JSON object. MUST NOT be re-encoded. |
+|JWS Compact Serialization | `jwt_vc`, `mdl_iso_json`, `mid_iso_json` | Credential conformant to the W3C Verifiable Credentials Data Model, ISO/IEC 18013-5:2021 mobile driving licence (mDL) data model, or ISO/IEC 23220-4 mobile eID document data model (not yet published), and signed as a JWS Compact Serialization. | MUST be a JSON string. Credential is already a sequence of base64url-encoded values separated by period characters and MUST NOT be re-encoded. |
+|JWS JSON Serialization | `jwt_vc`, `mdl_iso_json`, `mid_iso_cbor`| Credential conformant to the W3C Verifiable Credentials Data Model, ISO/IEC 18013-5:2021 mobile driving licence (mDL) data model, or ISO/IEC 23220-4 mobile eID document data model (not yet published), and signed as a JWS JSON Serialization. | MUST be a JSON object. MUST NOT be re-encoded. |
 |Data Integrity | `ldp_vc` | Credential conformant to the W3C Verifiable Credentials Data Model and signed with Data Integrity Proofs. | MUST be a JSON object. MUST NOT be re-encoded. |
 | CL-Signatures |`ac_vc` | Credential conformant to the AnonCreds format as defined in the Hyperledger Indy project and signed using CL-signature scheme. | MUST be a JSON object. MUST NOT be re-encoded. |
 | COSE |`mdl_iso_cbor`| Credential conformant to the ISO/IEC 18013-5:2021 mobile driving licence (mDL) data model, encoded as CBOR and signed as a COSE message. | MUST be a JSON string that is the base64url-encoded representation of the issued Credential |
@@ -842,15 +842,13 @@ It is dependent on the Credential format where the requested claims will appear.
 The following example shows a non-normative example of the relevant entries in the OP metadata defined above
 
 ```
-  HTTP/1.1 200 OK
+ HTTP/1.1 200 OK
   Content-Type: application/json
-
  {
   "credential_endpoint": "https://server.example.com/credential",
   "credentials_supported": {
-    "university_degree" : {
-      "display": [
-        {
+    "university_degree": {
+      "display": [{
           "name": "University Credential",
           "locale": "en-US",
           "logo": {
@@ -873,51 +871,57 @@ The following example shows a non-normative example of the relevant entries in t
       ],
       "formats": {
         "ldp_vc": {
-          "types": [ "VerifiableCredential", "UniversityDegreeCredential" ],
-          "binding_methods_supported": [ "did" ],
-          "proof_types_supported": [ "Ed25519Signature2018" ]
+          "types": ["VerifiableCredential", "UniversityDegreeCredential"],
+          "cryptographic_binding_methods_supported": ["did"],
+          "cryptographic_suites_supported": ["Ed25519Signature2018"]
         }
       },
       "claims": {
         "given_name": {
           "mandatory": false,
-          "display": [
-              {
-              `name`: `Given Name`,
-              `locale`: `en-US`
+          "display": [{
+              "name": "Given Name",
+              "locale": "en-US"
             },
             {
-              `name`: `名前`,
-              `locale`: `jp-JA`
+              "name": "名前",
+              "locale": "jp-JA"
             }
-          ]  
+          ]
         },
         "last_name": {},
         "degree": {},
         "gpa": {
           "mandatory": false,
           "value_type": "number",
-            "display": [
-              {
-              `name`: `GPA`
-              }
-          ]
+          "display": [{
+            "name": "GPA"
+          }]
         }
       }
     },
-    "credential_issuer": {
-      "display": [
-        {
-          `name`: `Example University`,
-          `locale`: `en-US`
-        },
-        {
-          `name`: `サンプル大学`,
-          `locale`: `jp-JA`
+    "WorkplaceCredential": {
+      "formats": {
+        "jwt_vc": {
+          "types": ["VerifiableCredential", "WorkplaceCredential"],
+          "binding_methods_supported": ["did"],
+          "cryptographic_suites_supported": ["ES256K"]
         }
-      ]  
+      }
     }
+  },
+  "credential_issuer": {
+    "display": [{
+        "name": "Example University",
+        "locale": "en-US"
+      },
+      {
+        "name": "サンプル大学",
+        "locale": "jp-JA"
+      }
+    ]
   }
+}
 ```
 
 Note: The Client MAY use other mechanisms to obtain information about the verifiable Credentials that an Issuer can issue.
