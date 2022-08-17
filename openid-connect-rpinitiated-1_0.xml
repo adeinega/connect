@@ -407,7 +407,7 @@
 	If any of the validation procedures defined in this specification fail, any operations requiring
 	the information that failed to correctly validate MUST be aborted and
 	the information that failed to validate MUST NOT be used.
-	Note that because logout actions are intended to be idempotent,
+	Note that because RP-Initiated Logout Requests are intended to be idempotent,
 	it is explicitly not an error for an RP to request that a logout be performed
 	when the OP does not consider that the End-User is logged in with the OP at the requesting RP.
       </t>
