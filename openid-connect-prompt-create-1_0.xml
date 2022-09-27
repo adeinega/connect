@@ -23,7 +23,7 @@
   <?rfc private="Draft" ?>
 
   <front>
-    <title abbrev="OIDC Prompt Create">Initiating User Registration via OpenID Connect - draft 06</title>
+    <title abbrev="OpenID Connect Prompt Create">Initiating User Registration via OpenID Connect - draft 06</title>
 
     <author fullname="George Fletcher" initials="GFF" surname="Fletcher">
       <organization>Capital One</organization>
