@@ -1180,7 +1180,7 @@
 		  authenticated session with the Client.
 		  If the End-User identified by the ID Token is logged in or is logged in by the request,
 		  then the Authorization Server returns a positive response;
-		  otherwise, it SHOULD return
+		  otherwise, it MUST return
 		  an error, such as <spanx style="verb">login_required</spanx>.
 		  When possible, an <spanx style="verb">id_token_hint</spanx>
 		  SHOULD be present when <spanx style="verb">prompt=none</spanx> is used
@@ -9383,6 +9383,9 @@
 	  </t>
 	  <t>
 	    Fixed #1251 - Referenced JWS definition of Base64url Encoding.
+	  </t>
+	  <t>
+	    Fixed #968: Made id_token_hint error treatment consistent.
 	  </t>
 	</list>
       </t>
