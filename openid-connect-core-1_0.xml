@@ -183,7 +183,7 @@
 	  the terms "Claim Name", "Claim Value", "JSON Web Token (JWT)",
 	  "JWT Claims Set", and "Nested JWT"
 	  defined by <xref target="JWT">JSON Web Token (JWT)</xref>,
-	  the terms "Header Parameter" and "JOSE Header"
+	  the terms "Base64url Encoding", "Header Parameter", and "JOSE Header"
 	  defined by <xref target="JWS">JSON Web Signature (JWS)</xref>,
 	  the term "User Agent" defined by <xref target="RFC7230">RFC 7230</xref>,
 	  and the term "Response Mode" defined by
@@ -9380,6 +9380,9 @@
         <list style="symbols">
 	  <t>
 	    Fixed #1266 - Removed misleading self-issued language that seemed to imply that nonce is optional.
+	  </t>
+	  <t>
+	    Fixed #1251 - Referenced JWS definition of Base64url Encoding.
 	  </t>
 	</list>
       </t>
