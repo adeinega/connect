@@ -56,7 +56,7 @@
       </address>
     </author>
 
-    <date day="20" month="October" year="2022" />
+    <date day="30" month="October" year="2022" />
 
     <workgroup>OpenID Connect Working Group</workgroup>
 
@@ -1023,16 +1023,17 @@
       </t>
       <t>
 	The
-	Authorization Endpoint,
 	Token Endpoint,
 	UserInfo Endpoint,
 	<spanx style="verb">jwks_uri</spanx> endpoint,
 	Dynamic Client Registration Endpoint,
-	and any other endpoints accessed by Clients
+	and any other endpoints directly accessed by Clients
 	SHOULD support the use of
 	<xref target="CORS">Cross-Origin Resource Sharing (CORS)</xref>
 	and/or other methods as appropriate
 	to enable Java Script Clients to access them.
+	The use of CORS at the Authorization Endpoint is NOT RECOMMENDED
+	as it is redirected to by the client and not directly accessed.
       </t>
       <t>
 	Additional OpenID Provider Metadata parameters MAY also be used.
@@ -2346,7 +2347,7 @@
 	-33
         <list style="symbols">
 	  <t>
-	    Fixed #980 - Specified the use of CORS at additional endpoints.
+	    Fixed #980 - Specified the use of CORS at endpoints directly accessed by the Client.
 	  </t>
 	</list>
       </t>
