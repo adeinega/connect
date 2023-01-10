@@ -44,7 +44,7 @@ This specification defines an API for the issuance of Verifiable Credentials.
 
 # Introduction
 
-This specification defines an API that is used to issue verifiable credentials. W3C formats [@VC_DATA] as well as other Credential formats are supported. 
+This specification defines an API that is used to issue verifiable credentials. W3C formats [@VC_DATA] as well as other Credential formats, like [@ISO.18013-5], are supported. 
 
 Verifiable Credentials are very similar to identity assertions, like ID Tokens in OpenID Connect [@OpenID.Core], in that they allow a Credential Issuer to assert End-User claims. However, in contrast to the identity assertions, a verifiable credential follows a pre-defined schema (the Credential type) and is typically bound to key material allowing the End-User to prove the legitimate possession of the Credential. This allows secure direct presentation of the Credential from the End-User to the RP, without involvement of the Credential Issuer. This specification caters for those differences.
 
@@ -104,7 +104,7 @@ Both the Credential and the Batch Credential endpoints have the (optional) abili
 
 ## OAuth 2.0
 
-Every Credential Issuer utilizes an OAuth [@!RFC7636] authorization server to authorize access. The same OAuth authorization server can protect one or more Credential Issuers. Wallets determine the authorization server a certain Credential Issuer relies on using the Credential Issuer's metadata.   
+Every Credential Issuer utilizes an OAuth [@!RFC6749] authorization server to authorize access. The same OAuth authorization server can protect one or more Credential Issuers. Wallets determine the authorization server a certain Credential Issuer relies on using the Credential Issuer's metadata.   
 
 All OAuth 2.0 grant types and extensions mechanisms can be used in conjunction with the credential issuance API. Aspects not defined in this specification are expected to follow [@!RFC6749]. 
 
@@ -476,7 +476,7 @@ Location: https://client.example.net/cb?
 
 The Token Endpoint issues an Access Token and, optionally, a Refresh Token in exchange for the authorization code that client obtained in a successful Authorization Response. It is used in the same manner as defined in [@!RFC6749] and follows the recommendations given in [@!I-D.ietf-oauth-security-topics].
 
-## Token Request
+## Token Request {#token_request}
 
 Upon receiving a successful Authorization Response, a Token Request is made as defined in Section 4.1.3 of [@!RFC6749].
 
@@ -527,7 +527,7 @@ Token Requests are made as defined in [@!RFC6749].
 
 In addition to the response parameters defined in [@!RFC6749], the AS MAY return the following parameters:
 
-* `c_nonce`: OPTIONAL. JSON string containing a nonce to be used to create a proof of possession of key material when requesting a Credential (see (#credential_request)).
+* `c_nonce`: OPTIONAL. JSON string containing a nonce to be used to create a proof of possession of key material when requesting a Credential (see (#credential_request)). When received,the wallet MUST use this nonce value for its subsequent credential requests until the credential issuer provides a fresh nonce.
 * `c_nonce_expires_in`: OPTIONAL. JSON integer denoting the lifetime in seconds of the `c_nonce`.
 * `authorization_pending`: OPTIONAL. JSON Boolean. In pre-authorized code flow, the Token Request is still pending as the Credential Issuer is waiting for the end user interaction to complete. The client SHOULD repeat the Token Request. Before each new request, the client MUST wait at least the number of seconds specified by the "interval" response parameter. ToDo: clarify boolean.
 * `interval`: OPTIONAL. The minimum amount of time in seconds that the client SHOULD wait between polling requests to the token endpoint in pre-authorized code flow.  If no value is provided, clients MUST use 5 as the default.
@@ -554,7 +554,7 @@ HTTP/1.1 200 OK
 
 If the Token Request is invalid or unauthorized, the Authorization Server constructs the error response as defined as in Section 5.2 of OAuth 2.0 [@!RFC6749].
 
-The following additional clarifications are provided for the following parameters already defined in [@!RFC6749]:
+The following additional clarifications are provided for the following error codes already defined in [@!RFC6749]:
 
 `invalid_request`:
 
@@ -646,14 +646,12 @@ This specification defines the following values for `proof_type`:
     * `jwk`: CONDITIONAL. JWT header containing the key material the new Credential shall be bound to. MUST NOT be present if `kid` or `x5c` is present.
     * `x5c`: CONDITIONAL. JWT header containing a certificate or certificate chain corresponding to the key used to sign the JWT. This element may be used to convey a key attestation. In such a case, the actual key certificate will contain attributes related to the key properties. MUST NOT be present if `kid` or `jwk` is present.
   * in the JWT body, 
-    * `iss`: REQUIRED (string). The value of this claim MUST be the client_id of the client making the credential request.
+    * `iss`: OPTIONAL (string). The value of this claim MUST be the `client_id` of the client making the credential request. This claim MUST be omitted if the access token authorizing the issuance call was obtained from a pre-authorized code flow through anonymous access to the token endpoint.
     * `aud`: REQUIRED (string). The value of this claim MUST be the Credential Issuer URL of credential issuer.
     * `iat`: REQUIRED (number). The value of this claim MUST be the time at which the proof was issued using the syntax defined in [@!RFC7519].
     * `nonce`: REQUIRED (string). The value type of this claim MUST be a string, where the value is a `c_nonce` provided by the credential issuer.
 
-Note: if both `jwk` and `x5c` are present, the represented signing key MUST be the same in both. 
-
-The Credential Issuer MUST validate that the `proof` is actually signed by a key identified in `kid` parameter.
+The Credential Issuer MUST validate that the `proof` is actually signed by a key identified in the JWT header.
 
 Below is a non-normative example of a `proof` parameter (line breaks for display purposes only):
 
@@ -706,7 +704,7 @@ The following claims are used in the Credential Response:
 * `format`: REQUIRED. JSON string denoting the format of the issued Credential.
 * `credential`: OPTIONAL. Contains issued Credential. MUST be present when `acceptance_token` is not returned. MAY be a JSON string or a JSON object, depending on the Credential format. See (#format_profiles) for the Credential format specific encoding requirements.
 * `acceptance_token`: OPTIONAL. A JSON string containing a token subsequently used to obtain a Credential. MUST be present when `credential` is not returned.
-* `c_nonce`: OPTIONAL. JSON string containing a nonce to be used to create a proof of possession of key material when requesting a Credential (see (#credential_request)).
+* `c_nonce`: OPTIONAL. JSON string containing a nonce to be used to create a proof of possession of key material when requesting a Credential (see (#credential_request)). When received,the wallet MUST use this nonce value for its subsequent credential requests until the credential issuer provides a fresh nonce.
 * `c_nonce_expires_in`: OPTIONAL. JSON integer denoting the lifetime in seconds of the `c_nonce`.
 
 The `format` Claim determines the Credential format and encoding of the credential in the Credential Response. Details are defined in the Credential Format Profiles in (#format_profiles). 
@@ -935,13 +933,15 @@ If the Credential Issuer is unable to perform discovery of the Credential Offer 
 
 ### Credential Issuer Identifier
 
-A Credential Issuer is identified by an HTTPS URL. The way the wallet discovers the Credential Issuer's URL is out of scope of this specification. 
+A Credential Issuer is identified by a case sensitive URL using the https scheme that contains scheme, host, and optionally, port number and path components and no query or fragment components. 
+
+The way the wallet discovers the Credential Issuer's URL is out of scope of this specification. 
 
 ### Credential Issuer Metadata Retrieval  {#credential-issuer-wellknown}
 
 The Credential Issuer's configuration can be retrieved using the Issuer identifier.
 
-Credential Issuers publishing Metadata MUST make a JSON document available at the path formed by concatenating the string `/.well-known/openid-credential-issuer` to the Credential Issuer identifier. If the Credential Issuer value contains a path component, any terminating `/` MUST be removed before appending `/.well-known/openid-configuration`. 
+Credential Issuers publishing Metadata MUST make a JSON document available at the path formed by concatenating the string `/.well-known/openid-credential-issuer` to the Credential Issuer identifier. If the Credential Issuer value contains a path component, any terminating `/` MUST be removed before appending `/.well-known/openid-credential-issuer`. 
 
 `openid-credential-issuer` MUST point to a JSON document compliant with this specification and MUST be returned using the `application/json` content type.
 
@@ -1262,24 +1262,27 @@ TBD
 
 # IANA Considerations
 
-register "urn:ietf:params:oauth:grant-type:pre-authorized_code"
+## Sub-Namespace Registration
 
-Register "unsupported_credential_type", "unsupported_credential_format" and "invalid_or_missing_nonce"
+This section registers the value "urn:ietf:params:oauth:grant-type:pre-authorized_code" in the IANA "OAuth URI" registry established by "An IETF URN Sub-Namespace for OAuth" [@!RFC6755].
+
+* URN: urn:ietf:params:oauth:grant-type:pre-authorized_code
+* Common Name: Pre-Authorized Code
+* Change Controller: AB/Connect Working Group - openid-specs-ab@lists.openid.net
+* Specification Document: (#token_request) of this document
 
 ## Well-Known URI Registry
 
 This specification registers the well-known URI defined in (#credential-issuer-wellknown) in the IANA Well-Known URI registry defined in RFC 5785 [@!RFC5785].
 
-### Registry Contents
-
 * URI suffix: openid-credential-issuer
-* Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+* Change controller: AB/Connect Working Group - openid-specs-ab@lists.openid.net
 * Specification document: (#credential-issuer-wellknown) of this document
 * Related information: (none)
 
 # Acknowledgements {#Acknowledgements}
 
-We would like to thank Brian Campbell, Joseph Heenan, Daniel McGrogan, David Chadwick, John Bradley, Mark Haine, Alen Horvat, Michael B. Jones, Kenichi Nakamura, Oliver Terbu and David Waite for their valuable contributions to this specification.
+We would like to thank Daniel Fett, Brian Campbell, Joseph Heenan, Daniel McGrogan, David Chadwick, John Bradley, Mark Haine, Alen Horvat, Michael B. Jones, Kenichi Nakamura, Oliver Terbu and David Waite for their valuable contributions to this specification.
 
 # Notices
 
@@ -1564,6 +1567,7 @@ The value of the `credential` claim in the credential response MUST be a a JSON 
 
    -10
 
+   * introduced differentiation between credential issuer and authorization server 
    * relaxed client identification requirements for pre-authorized code grant type
    * renamed issuance initiation endpoint to Credential Offer Endpoint
    * added `grants` structure to credential offer
