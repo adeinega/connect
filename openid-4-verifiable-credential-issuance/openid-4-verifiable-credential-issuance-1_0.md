@@ -223,7 +223,7 @@ The diagram is based on a Credential Issuer initiated flow illustrated in a use 
         |                |      for the issuance of a certain Credential        |
         |---------------------------------------------------------------------->|
         |                |                                                      |
-        |                |  (1) Credential Offer (pre-authorized_code)          |
+        |                |  (1) Credential Offer (pre-authorized code)          |
         |                |<-----------------------------------------------------|        
         |    interacts   |                                                      |
         |--------------->|                                                      |
@@ -231,7 +231,7 @@ The diagram is based on a Credential Issuer initiated flow illustrated in a use 
         |                |      |  Obtains Issuer's server metadata             |
         |                | <----                                                |
         |                |                                                      |
-        |                |  (2) Token Request (pre-authorized_code, pin)        |
+        |                |  (2) Token Request (pre-authorized code, pin)        |
         |                |----------------------------------------------------->| 
         |                |      Token Response (access_token)                   |
         |                |<-----------------------------------------------------|    
@@ -249,11 +249,11 @@ Figure: Issuance using Pre-Authorized code flow
 
 (1) The flow begins as the Credential Issuer generates an Credential Offer for certain Credential(s) and communicates it to the Wallet, for example as a QR code or as a deeplink. The Wallet uses information from the Credential Offer to obtain the Credential Issuer's metadata including details about the Credential that this Credential Issuer wants to issue. This step is defined in (#issuance_initiation_endpoint).
 
-(2) This step is the same as Step 3 in the Authorization Code Flow, but instead of authorization code, pre-authorized_code obtained in step (1) is sent in the Token Request. This step is defined in (#token_endpoint).  
+(2) This step is the same as Step 3 in the Authorization Code Flow, but instead of authorization code, pre-authorized code obtained in step (1) is sent in the Token Request. This step is defined in (#token_endpoint).  
 
 (3) This step is the same as Step 4 in the Authorization Code Flow. 
 
-Note that the pre-authorized_code is sent to the Token Endpoint, and not to the Authorization Endpoint.
+Note that the pre-authorized code is sent to the Token Endpoint, and not to the Authorization Endpoint.
 
 It is also important to note that anyone who possesses a valid pre-authorization_code would be able to receive a VC from the Credential Issuer. Implementers MUST implement mitigations most suitable to the use-case. 
 
@@ -532,7 +532,7 @@ In addition to the response parameters defined in [@!RFC6749], the AS MAY return
 * `authorization_pending`: OPTIONAL. JSON Boolean. In pre-authorized code flow, the Token Request is still pending as the Credential Issuer is waiting for the end user interaction to complete. The client SHOULD repeat the Token Request. Before each new request, the client MUST wait at least the number of seconds specified by the "interval" response parameter. ToDo: clarify boolean.
 * `interval`: OPTIONAL. The minimum amount of time in seconds that the client SHOULD wait between polling requests to the token endpoint in pre-authorized code flow.  If no value is provided, clients MUST use 5 as the default.
 
-Upon receiving `pre-authorized_code`, the Credential Issuer MAY decide to interact with the end-user in the course of the Token Request processing, which might take some time. In such a case, the Credential Issuer SHOULD respond with the error `authorization_pending` and the new return parameter `interval`.
+Upon receiving pre-authorized code, the Credential Issuer MAY decide to interact with the end-user in the course of the Token Request processing, which might take some time. In such a case, the Credential Issuer SHOULD respond with the error `authorization_pending` and the new return parameter `interval`.
 
 Below is a non-normative example of a Token Response:
 
