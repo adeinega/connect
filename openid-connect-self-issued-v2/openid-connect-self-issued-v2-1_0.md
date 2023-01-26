@@ -72,34 +72,33 @@ Because a Self-Issued OP within the End-User’s control does not have the legal
 
 ## Terms and Definitions
 
-Common terms in this document come from four primary sources: [@!OpenID.Core], [@!VC-DATA] and [@!DID-Core]. In the case where a term has a definition that differs, the definition below is authoritative.
+Common terms in this document come from [@!OpenID.Core]. 
 
-Self-Issued OpenID Provider (Self-Issued OP)
-  An OpenID Provider (OP) used by the End-users to prove control over a cryptographically Verifiable Identifier
+This specification also defines the following terms. In the case where a term has a definition that differs, the definition below is authoritative.
 
-Self-Issued Request
-  Request to a Self-Issued OP from an RP
+Self-Issued OpenID Provider (Self-Issued OP):
+:   An OpenID Provider (OP) used by the End-users to prove control over a cryptographically Verifiable Identifier
 
-Self-Issued Response
-  Response to an RP from a Self-Issued OP
+Self-Issued Request:
+:  Request to a Self-Issued OP from an RP
 
-Self-Issued ID Token
-  ID Token signed using the key material controlled by the End-User. It is issued by a Self-Issued OP.
+Self-Issued Response:
+:  Response to an RP from a Self-Issued OP
 
-Cryptographically Verifiable Identifier
-  An identifier that is either based upon or resolves to cryptographic key material that can be used to verify a signature on the ID Token or the Self-Issued Request.
+Self-Issued ID Token:
+:  ID Token signed using the key material controlled by the End-User. It is issued by a Self-Issued OP.
+
+Cryptographically Verifiable Identifier:
+:  An identifier that is either based upon or resolves to cryptographic key material that can be used to verify a signature on the ID Token or the Self-Issued Request.
     
-Trust Framework
-  A legally enforceable set of specifications, rules, and agreements that govern a multi-party system established for a common purpose, designed for conducting specific types of transactions among a community of participants, and bound by a common set of requirements, as defined in [OIX](https://openidentityexchange.org/networks/87/item.html?id=365).
+Trust Framework:
+:  A legally enforceable set of specifications, rules, and agreements that govern a multi-party system established for a common purpose, designed for conducting specific types of transactions among a community of participants, and bound by a common set of requirements, as defined in [OIX](https://openidentityexchange.org/networks/87/item.html?id=365).
 
-Verifiable Credential (VC)
-  A verifiable credential is a tamper-evident credential that has authorship that can be cryptographically verified. Verifiable credentials can be used to build verifiable presentations, which can also be cryptographically verified. The claims in a credential can be about different subjects. See [@!VC-DATA].
+Wallet:
+:  Entity that receives, stores, presents, and manages Credentials and key material of the End-User. There is no single deployment model of a Wallet: Credentials and keys can both be stored/managed locally by the end-user, or by using a remote self-hosted service, or a remote third party service. In the context of this specification, the Wallet acts as an Self-Issued OpenID Provider towards the RP. 
 
-Wallet
-  Entity that receives, stores, presents, and manages Credentials and key material of the End-User. There is no single deployment model of a Wallet: Credentials and keys can both be stored/managed locally by the end-user, or by using a remote self-hosted service, or a remote third party service. In the context of this specification, the Wallet acts as an Self-Issued OpenID Provider towards the RP. 
-
-Base64url Encoding
-  Base64 encoding using the URL- and filename-safe character set defined in Section 5 of [@!RFC4648], with all trailing '=' characters omitted (as permitted by Section 3.2 of [@!RFC4648]) and without the inclusion of any line breaks, whitespace, or other additional characters. Note that the base64url encoding of the empty octet sequence is the empty string. (See Appendix C of [@!RFC7515] for notes on implementing base64url encoding without padding.)
+Base64url Encoding:
+:  Base64 encoding using the URL- and filename-safe character set defined in Section 5 of [@!RFC4648], with all trailing '=' characters omitted (as permitted by Section 3.2 of [@!RFC4648]) and without the inclusion of any line breaks, whitespace, or other additional characters. Note that the base64url encoding of the empty octet sequence is the empty string. (See Appendix C of [@!RFC7515] for notes on implementing base64url encoding without padding.)
 
 ## Abbreviations
 
@@ -141,10 +140,10 @@ This specification extends Section 7 of [@!OpenID.Core] Self-Issued OpenID Provi
 
 - Added support for Decentralized Identifiers defined in [@!DID-Core] as Cryptographically Verifiable Identifiers in addition to the JWK thumbprint defined in Self-Issued OP v2. See (#sub-syntax-type).
 - Added support for Cross-Device Self-Issued OP model. See (#cross-device-siop).
-- Extended Relying Party Registration mechanisms to support pre-registration and dynamic registration for not-pre-registered RPs. See (#rp-resolution).
+- Extended mechanisms how not-pre-registered RPs can pass their metadata in the Authorization Request. See (#rp-resolution).
 - Added support for Dynamic Self-Issued OpenID Provider Discovery. See (#dynamic-siop-metadata). 
 - Added support for claimed URLs (universal links, app links) in addition to the custom URL schemas as Self-Issued OP `authorization_endpoint`. See (#choice-of-authoriation-endpoint).
-- Allows use of any OpenID Connect flow for Self-Issued OPs and Dynamic Client Registration
+- Added support to use of any OpenID Connect flow for Self-Issued OPs and Dynamic Client Registration.
 
 Note that while this specification extends the original Section 7 of [@!OpenID.Core] Self-Issued OpenID Provider, some sections of it could be applicable more generally to the entire OpenID Connect Core specification.
 
@@ -204,11 +203,8 @@ In the second scenario, the request includes the `authorization_endpoint` of a S
 The following is a non-normative example of a request with no specific `authorization_endpoint`, which must be scanned by the Self-Issued OP application manually opened by the End-user instead of an arbitrary camera application on a user-device. It is a request when the RP is pre-registered with the Self-Issued OP (line wraps within values are for display purposes only):
 
 ```
-    response_type=id_token
-    &client_id=https%3A%2F%2Fclient.example.org%2Fcb
-    &request_uri=https%3A%2F%2Fclient.example.org%2Frequest
-    &scope=openid
-    &nonce=n-0S6_WzA2Mj
+    client_id=https%3A%2F%2Fclient.example.org%2Fcb
+    &request_uri=https%3A%2F%2Fclient.example.org%2Frequest%2FGkurKxf5T0Y-mnPFCHqWOMiZi4VS138cQO_V7PZHAdM
 ```
 
 # Self-Issued OpenID Provider Discovery {#siop-discovery}
@@ -219,7 +215,7 @@ RP can obtain `authorization_endpoint` of the Self-Issued OP to construct a requ
 
 As an alternative mechanism to the (#static-config), the RP can pre-obtain Self-Issued OP Discovery Metadata prior to the transaction, either using [@!OpenID.Discovery], or out-of-band mechanisms. 
 
-How the RP obtains Self-Issued OP's issuer identifier is out of scope of this specification. The RPs MAY skip Section 2 of [@!OpenID.Discovery].
+How the RP obtains Self-Issued OP's Issuer Identifier is out of scope of this specification. The RPs MAY skip Section 2 of [@!OpenID.Discovery].
 
 When [@!OpenID.Discovery] is used, the RP MUST obtain Self-Issued OP metadata from a JSON document that Self-Issued OP made available at the path formed by concatenating the string `/.well-known/openid-configuration` to the Self-Issued OP's Issuer Identifier.
 
@@ -232,7 +228,7 @@ These OpenID Provider Metadata values are used by the Self-Issued OP:
 * `issuer`
     * REQUIRED. URL using the `https` scheme with no query or fragment component that the Self-Issued OP asserts as its Issuer Identifier. MUST be identical to the `iss` Claim value in ID Tokens issued from this Self-Issued OP.
 * `response_types_supported`
-    * REQUIRED. A JSON array of strings representing supported response types. MUST be `id_token`.
+    * REQUIRED. A JSON array of strings representing supported response types. MUST include `id_token`.
 * `scopes_supported`
     * REQUIRED. A JSON array of strings representing supported scopes. MUST support the `openid` scope value.
 * `subject_types_supported`
@@ -242,7 +238,7 @@ These OpenID Provider Metadata values are used by the Self-Issued OP:
 * `request_object_signing_alg_values_supported`
     * REQUIRED. A JSON array containing a list of the JWS signing algorithms (alg values) supported by the OP for Request Objects, which are described in Section 6.1 of [@!OpenID.Core]. Valid values include `none`, `RS256`, `ES256`, `ES256K`, and `EdDSA`.
 * `subject_syntax_types_supported`
-    * REQUIRED. A JSON array of strings representing URI scheme identifiers and optionally method names of supported Subject Syntax Types defined in {#sub-syntax-type}. When Subject Syntax Type is JWK Thumbprint, valid value is `urn:ietf:params:oauth:jwk-thumbprint` defined in [@!RFC9278]. When Subject Syntax Type is Decentralized Identifier, valid values MUST be a `did:` prefix followed by a supported DID method without a `:` suffix. For example, support for the DID method with a method-name "example" would be represented by `did:example`. Support for all DID methods listed in Section 13 of [@DID_Specification_Registries] is indicated by sending did without any method-name.
+    * REQUIRED. A JSON array of strings representing URI scheme identifiers and optionally method names of supported Subject Syntax Types defined in (#sub-syntax-type). When Subject Syntax Type is JWK Thumbprint, valid value is `urn:ietf:params:oauth:jwk-thumbprint` defined in [@!RFC9278]. When Subject Syntax Type is Decentralized Identifier, valid values MUST be a `did:` prefix followed by a supported DID method without a `:` suffix. For example, support for the DID method with a method-name "example" would be represented by `did:example`. Support for all DID methods listed in Section 13 of [@DID_Specification_Registries] is indicated by sending did without any method-name.
 * `id_token_types_supported`: 
     * OPTIONAL. A JSON array of strings containing the list of ID Token types supported by the OP, the default value is `attester_signed_id_token`. The ID Token types defined in this specification are: 
         * `subject_signed_id_token`: Self-Issued ID Token, i.e. the id token is signed with key material under the end-user's control. 
@@ -256,7 +252,7 @@ The following is a non-normative example of a Self-Issued OP metadata obtained d
 
 ```json
 {
-  "authorization_endpoint": "https://wallet.example.org", 
+  "authorization_endpoint": "https://wallet.example.com", 
   "issuer": "https://example.org",
   "response_types_supported": [
     "id_token"
@@ -309,7 +305,7 @@ The following is a non-normative example of a same-device request when the RP is
 
 ```
   HTTP/1.1 302 Found
-  Location:  https://client.example.org/universal-link?
+  Location:  https://wallet.example.com/universal-link?
     response_type=id_token
     &client_id=s6BhdRkqt3
     &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
@@ -337,18 +333,6 @@ The following is a non-normative example of a `client_id` resolvable using OpenI
 "client_id": "https://client.example.org"
 ```
 
-The following is a non-normative example of a signed cross-device request when the RP is not pre-registered with the Self-Issued OP and uses OpenID Federation 1.0 Automatic Registration. (with line wraps within values for display purposes only):
-
-```
-HTTP/1.1 302 Found
-  Location: https://client.example.org/universal-link?
-    response_type=id_token
-    &client_id=https%3A%2F%2Fclient.example.org%2F
-    &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
-    &scope=openid%20profile
-    &nonce=n-0S6_WzA2Mj
-```
-
 ### Decentralized Identifiers
 
 As defined in Section X.X of [@!OpenID4VP].
@@ -359,19 +343,33 @@ The following is a non-normative example of a `client_id` resolvable using Decen
 "client_id": "did:example:EiDrihTRe0GMdc3K16kgJB3Xbl9Hb8oqVHjzm6ufHcYDGA"
 ```
 
-The following is a non-normative example of a signed cross-device request when the RP is not pre-registered with the Self-Issued OP and uses Decentralized Identifier Resolution. (with line wraps within values for display purposes only):
+The following is a non-normative example of a request when the RP is not pre-registered with the Self-Issued OP and uses Decentralized Identifier Resolution. (with line wraps within values for display purposes only):
 
 ```
-  siopv2://idtoken?
-    scope=openid%20profile
-    &response_type=id_token
-    &client_id=did%3Aexample%3AEiDrihTRe0GMdc3K16kgJB3Xbl9Hb8oqVHjzm6ufHcYDGA
-    &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
-    &claims=...
-    &registration=%7B%22subject_syntax_types_supported%22%3A
-    %5B%22did%3Aexample%22%5D%2C%0A%20%20%20%20
-    %22id_token_signing_alg_values_supported%22%3A%5B%22ES256%22%5D%7D
-    &nonce=n-0S6_WzA2Mj
+siopv2://?
+  client_id=did%3Aexample%3AEiDri
+  &request_uri=https%3A%2F%2Fclient.example.org%2Frequest%2FGkurKxf5T0Y-mnPFCHqWOMiZi4VS138cQO_V7PZHAdM
+```
+
+The following is a non-normative example of a Request Object referenced by the `request_uri`. It is signed with `ES256` algorithm, using the keys obtained from the DID Document before base64url encoding:
+
+```
+{
+  "alg": "ES256",
+  "kid": "did:example:EiDri#sign1",
+  "typ": "JWT"
+}.
+{
+  "client_id": "did:example:EiDri",
+  "scope": "openid profile",
+  "response_type": "id_token",
+  "redirect_uri": "https://client.example.org/cb",
+  "client_metadata": {
+    "subject_syntax_types_supported": "did:example",
+    "id_token_signing_alg_values_supported": "ES256"
+  },
+  nonce=n-0S6_WzA2Mj
+}.[signature]
 ```
 
 ## Relying Party Client Metadata parameter {#rp-registration-parameter}
@@ -382,13 +380,13 @@ The following is a non-normative example of an unsigned same-device request when
 
 ```
   HTTP/1.1 302 Found
-  Location: https://client.example.org/universal-link?
+  Location: https://wallet.example.com/universal-link?
     response_type=id_token
     &client_id=https%3A%2F%2Fclient.example.org%2Fcb
     &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
     &scope=openid%20profile
     &nonce=n-0S6_WzA2Mj
-    &registration=%7B%22subject_syntax_types_supported%22%3A
+    &client_metadata=%7B%22subject_syntax_types_supported%22%3A
     %5B%22urn%3Aietf%3Aparams%3Aoauth%3Ajwk-thumbprint%22%5D%2C%0A%20%20%20%20
     %22id_token_signing_alg_values_supported%22%3A%5B%22RS256%22%5D%7D
 ```
@@ -406,7 +404,7 @@ Usage of `client_metadata` or `client_metadata_uri` parameters with `client_id` 
 This extension defines the following RP parameter value, used by the RP to provide information about itself to the Self-Issued OP:
 
 * `subject_syntax_types_supported`
-    * REQUIRED. A JSON array of strings representing URI scheme identifiers and optionally method names of supported Subject Syntax Types defined in {#sub-syntax-type}. When Subject Syntax Type is JWK Thumbprint, valid value is `urn:ietf:params:oauth:jwk-thumbprint` defined in [@!RFC9278]. When Subject Syntax Type is Decentralized Identifier, valid values MUST be a `did:` prefix followed by a supported DID method without a `:` suffix. For example, support for the DID method with a method-name "example" would be represented by `did:example`. Support for all DID methods is indicated by sending `did` without any method-name.
+    * REQUIRED. A JSON array of strings representing URI scheme identifiers and optionally method names of supported Subject Syntax Types defined in (#sub-syntax-type). When Subject Syntax Type is JWK Thumbprint, valid value is `urn:ietf:params:oauth:jwk-thumbprint` defined in [@!RFC9278]. When Subject Syntax Type is Decentralized Identifier, valid values MUST be a `did:` prefix followed by a supported DID method without a `:` suffix. For example, support for the DID method with a method-name "example" would be represented by `did:example`. Support for all DID methods is indicated by sending `did` without any method-name.
 
 Other client metadata parameters defined in [@!OpenID.Registration] MAY be used. Examples are explanatory parameters such as `policy_uri`, `tos_uri`, and `logo_uri`. If the RP uses more than one Redirection URI, the `redirect_uris` parameter would be used to register them. Finally, if the RP is requesting encrypted responses, it would typically use the `jwks_uri`, `id_token_encrypted_response_alg` and `id_token_encrypted_response_enc` parameters.
 
@@ -432,7 +430,7 @@ This specification defines the following two Subject Syntax Types. Additional Su
 
 * Decentralized Identifier subject syntax type. When this type is used,  the `sub` value MUST be a DID as defined in [@!DID-Core], and `sub_jwk` MUST NOT be included in the Self-Issued Response. The subject syntax type MUST be cryptographically verified against the resolved DID Document as defined in {#siop-id_token-validation}.
 
-The RP indicates Subject Syntax Types it supports in Client metadata parameter `subject_syntax_types_supported` defined in {#rp-metadata}.
+The RP indicates Subject Syntax Types it supports in Client metadata parameter `subject_syntax_types_supported` defined in (#rp-metadata).
 
 # Self-Issued OpenID Provider Authorization Request {#siop_authentication_request}
 
@@ -444,15 +442,15 @@ Communication with the Authorization Endpoint MUST utilize TLS.
 
 This specification defines the following new authorization request parameters in addition to [@!OpenID.Core]:
 
-* `client_metadata`: OPTIONAL. This parameter is used by the RP to provide information about itself to a Self-Issued OP that would normally be provided to an OP during Dynamic RP Registration, as specified in {#rp-registration-parameter}. It MUST not be present if the RP uses OpenID Federation 1.0 Automatic Registration to pass its metadata.
-* `client_metadata_uri`: OPTIONAL. This parameter is used by the RP to provide information about itself to a Self-Issued OP that would normally be provided to an OP during Dynamic RP Registration, as specified in {#rp-registration-parameter}. It MUST not be present if the RP uses OpenID Federation 1.0 Automatic Registration to pass its metadata.
+* `client_metadata`: OPTIONAL. This parameter is used by the RP to provide information about itself to a Self-Issued OP that would normally be provided to an OP during Dynamic RP Registration, as specified in (#rp-registration-parameter). It MUST not be present if the RP uses OpenID Federation 1.0 Automatic Registration to pass its metadata.
+* `client_metadata_uri`: OPTIONAL. This parameter is used by the RP to provide information about itself to a Self-Issued OP that would normally be provided to an OP during Dynamic RP Registration, as specified in (#rp-registration-parameter). It MUST not be present if the RP uses OpenID Federation 1.0 Automatic Registration to pass its metadata.
 * `id_token_type`: OPTIONAL. Space-separated string that specifies the types of ID Token the RP wants to obtain, with the values appearing in order of preference. The allowed individual values are `subject_signed_id_token` and `attester_signed_id_token` (see (#dynamic-siop-metadata)). The default value is `attester_signed_id_token`. The RP determines the type if ID Token returned based on the comparison of the `iss` and `sub` claims values (see(see (#siop-id-token-validation)). In order to preserve compatibility with existing OpenID Connect deployments, the OP MAY return an ID Token that does not fulfill the requirements as expressed in this parameter. So the RP SHOULD be prepared to reliably handle such an outcome. 
 
 This specification allows RPs to sent authorization request parameters by using "request by value" and "request by reference" as defined in [@!RFC9101] through the request parameters `request` or `request_uri`. 
 
-Note: When using the parameters `request` or `request_uri` the only further required parameter of the authorization request is the `client_id`. 
+When using the parameters `request` or `request_uri` the only further required parameter of the authorization request is the `client_id`. 
 
-When `request` or `request_uri` parameters are NOT present, and RP is NOT using OpenID Federation 1.0 Automatic Registration to pass entire RP metadata, `client_metadata` or `client_metadata_uri` parameters MUST be present in the request. `client_metadata` and `client_metadata_uri` are mutual exclusiv.
+When `request` or `request_uri` parameters are NOT present, and RP is NOT using OpenID Federation 1.0 Automatic Registration to pass entire RP metadata, `client_metadata` or `client_metadata_uri` parameters MUST be present in the request. `client_metadata` and `client_metadata_uri` are mutually exclusive.
 
 RPs MUST send a `nonce` parameter  with every Self-Issued OP Authorization Request as a basis for replay detection complying with the security considerations given in [@!OpenID.Core], Section 15.5.2.
 
@@ -478,8 +476,7 @@ The following is a non-normative example HTTP 302 redirect request by the RP whi
     &client_id=https%3A%2F%2Fclient.example.org%2Fcb
     &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
     &id_token_type=subject_signed_id_token
-    &claims=...
-    &registration=%7B%22subject_syntax_types_supported%22%3A
+    &client_metadata=%7B%22subject_syntax_types_supported%22%3A
     %5B%22urn%3Aietf%3Aparams%3Aoauth%3Ajwk-thumbprint%22%5D%2C%0A%20%20%20%20
     %22id_token_signing_alg_values_supported%22%3A%5B%22ES256%22%5D%7D
     &nonce=n-0S6_WzA2Mj
@@ -491,7 +488,7 @@ The following is a non-normative example of an authorization request utilizing a
   HTTP/1.1 302 Found
   Location: siopv2://?
     client_id=https%3A%2F%2Fclient.example.org%2Fcb
-    &request_uri=https%3A%2F%2Fclient.example.org%2Frequests%2FGkurKxf5T0Y-mnPFCHqWOMiZi4VS138cQO_V7PZHAdM
+    &request_uri=https%3A%2F%2Fclient.example.org%2Frequest%2FGkurKxf5T0Y-mnPFCHqWOMiZi4VS138cQO_V7PZHAdM
 ```
 
 ## `aud` of a Request Object
@@ -519,8 +516,7 @@ The following is a non-normative example of a Self-Issued Request URL in a cross
     &client_id=https%3A%2F%2Fclient.example.org%2Fpost_cb
     &redirect_uri=https%3A%2F%2Fclient.example.org%2Fpost_cb
     &response_mode=post
-    &claims=...
-    &registration=%7B%22subject_syntax_types_supported%22%3A
+    &client_metadata=%7B%22subject_syntax_types_supported%22%3A
     %5B%22urn%3Aietf%3Aparams%3Aoauth%3Ajwk-thumbprint%22%5D%2C%0A%20%20%20%20
     %22id_token_signing_alg_values_supported%22%3A%5B%22ES256%22%5D%7D
     &nonce=n-0S6_WzA2Mj
@@ -528,7 +524,7 @@ The following is a non-normative example of a Self-Issued Request URL in a cross
 
 Note that the Authorization Request might only include request parameters and not be targeted to a particular `authorization_endpoint`, in which case, the End-User must use a particular Self-Issued OP application to scan the QR code with such request.
 
-Such an Authorization Request might result in a large QR code, especially when including a `claims` parameter and extensive registration data. A RP MAY consider using a `request_uri` in such a case.
+Such an Authorization Request might result in a large QR code, especially when including extensive `client_metadata`. A RP MAY consider using a `request_uri` in such a case.
 
 # Self-Issued OpenID Provider Authorization Response {#siop-authentication-response}
 
@@ -593,10 +589,10 @@ The error response must be made in the same manner as defined in Section 3.1.2.6
 In addition to the error codes defined in Section 4.1.2.1 of OAuth 2.0 and Section 3.1.2.6 of [@!OpenID.Core], this specification also defines the following error codes:
 
 * **`user_cancelled`**: End-User cancelled the Authorization Request from the RP.
-* **`registration_value_not_supported`**: the Self-Issued OP does not support some Relying Party parameter values received in the request.
+* **`client_metadata_value_not_supported`**: the Self-Issued OP does not support some Relying Party parameter values received in the request.
 * **`subject_syntax_types_not_supported`**: the Self-Issued OP does not support any of the Subject Syntax Types supported by the RP, which were communicated in the request in the `subject_syntax_types_supported` parameter.
-* **`invalid_registration_uri`**: the `client_metadata_uri` in the Self-Issued OpenID Provider request returns an error or contains invalid data.
-* **`invalid_registration_object`**: the `client_metadata` parameter contains an invalid RP parameter Object.
+* **`invalid_client_metadata_uri`**: the `client_metadata_uri` in the Self-Issued OpenID Provider request returns an error or contains invalid data.
+* **`invalid_client_metadata_object`**: the `client_metadata` parameter contains an invalid RP parameter Object.
 
 Other error codes MAY be used.
 
@@ -734,6 +730,8 @@ Implementers MUST take this fact into consideration when using cross-device Self
 Implementors should be cautious when using cross-device Self-Issued OP model for authentication and should implement mitigations according to the desired security level.
 
 This attack does not apply for the same-device Self-Issued OP protocol flows as the RP checks that the Authorization Response comes from the same browser where the Authorization Request was sent to. Same-device Self-Issued OP protocol flows therefore can be used for authentication, given all other security measures are put in place.
+
+For more details on possible attacks and mitigations see [@I-D.ietf-oauth-cross-device-security].
 
 ## Invocation using Private-Use URI Schemes (Custom URL Schemes) {#invocation-using-custom-scheme}
 
