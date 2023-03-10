@@ -11,9 +11,9 @@ pipelines:
             - docker run -v `pwd`/openid-4-verifiable-presentations:/data danielfett/markdown2rfc openid-4-verifiable-presentations-1_0.md
             - docker run -v `pwd`/openid-4-verifiable-credential-issuance:/data danielfett/markdown2rfc openid-4-verifiable-credential-issuance-1_0.md
             - docker run -v `pwd`/openid-connect-self-issued-v2:/data danielfett/markdown2rfc openid-connect-self-issued-v2-1_0.md
-            - mv openid-4-verifiable-presentations-*.html openid-4-verifiable-presentations-1_0-test.html
-            - mv openid-4-verifiable-credential-issuance-*.html openid-4-verifiable-credential-issuance-1_0-test.html
-            - mv openid-connect-self-issued-v2-*.html openid-connect-self-issued-v2-1_0-test.html
+            - mv openid-4-verifiable-presentations-*.html openid-4-verifiable-presentations-1_0.html
+            - mv openid-4-verifiable-credential-issuance-*.html openid-4-verifiable-credential-issuance-1_0.html
+            - mv openid-connect-self-issued-v2-*.html openid-connect-self-issued-v2-1_0.html
           artifacts:
             - '*.html'
             - '*.xml'
@@ -31,4 +31,4 @@ pipelines:
             - cd openid.bitbucket.io/connect
             - git add *
             - git commit -m "Update AB/Connect drafts"
-            - git push origin master
+            - git push origin oid4vc-io-pipeline-test
