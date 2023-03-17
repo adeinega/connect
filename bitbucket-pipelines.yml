@@ -38,4 +38,4 @@ pipelines:
             - cd openid.bitbucket.io/connect
             - git add *
             - git commit -m "Update AB/Connect drafts"
-            - git push origin oid4vc-io-pipeline-test
+            - git push origin oid4vc-pipeline-test
