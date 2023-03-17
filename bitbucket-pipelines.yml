@@ -26,6 +26,7 @@ pipelines:
             - '*.xml'
       - step:
           name: publish
+          deployment: publish
           clone:
             enabled: false
           script:
