@@ -810,7 +810,7 @@
               <list style="hanging">
                 <t hangText="keys">
                   <vspace/>
-                  REQUIRED. List of JWKs.
+                  REQUIRED. List of JWK values.
                 </t>
                 <t hangText="iss">
                   <vspace/>
@@ -2674,6 +2674,17 @@ Host: openid.sunet.se
             <spanx style="verb">application/resolve-response+jwt</spanx>,
             containing resolved metadata and
             verified Trust Marks.
+          </t>
+
+          <t>
+            The response is a signed JWT, explicitly typed by setting the
+            <spanx style="verb">typ</spanx> header parameter to
+            <spanx style="verb">resolve-response+jwt</spanx>. 
+            This is done to prevent
+            cross-JWT confusion (see <xref target="RFC8725"/>, section 3.11).
+          </t>
+
+          <t>
             The resolve response JWT MAY also contain
             the sequence of the Entity Statements that compose the Trust Chain,
             sorted as shown in <xref target="trust_chain"/>.
@@ -3066,8 +3077,12 @@ Host: trust-anchor.example.com
             A successful response MUST use the HTTP status code 200
             and the content type set to
             <spanx style="verb">application/jwk-set+jwt</spanx>.
-            The response is a signed JWT containing the following
-            paramenters:
+            The response is a signed JWT with the <xref target="RFC7517">JWK Set</xref> 
+            as its payload. The JWT is explicitly typed by setting the
+            <spanx style="verb">typ</spanx> header parameter to
+            <spanx style="verb">jwk-set+jwt</spanx>. This is done to prevent
+            cross-JWT confusion (see <xref target="RFC8725"/>, section 3.11).
+            The response JWT contains the following claims:
           </t>
 
           <t>
@@ -3086,13 +3101,12 @@ Host: trust-anchor.example.com
               </t>
               <t hangText="keys">
                 <vspace/>
-                REQUIRED. An array of JWK values
+                REQUIRED. An array of JSON objects
                 representing the public Federation Entity signing keys.
 
                 <t>
-                  The array of JWKs contained
-                  in the <spanx style="verb">keys</spanx> claim
-                  also utilizes the following claims:
+                  Every JWK in the <spanx style="verb">keys</spanx> 
+                  claim includes the following claims:
                 </t>
 
                 <t>
@@ -3106,7 +3120,7 @@ Host: trust-anchor.example.com
                     </t>
                     <t hangText="iat">
                       <vspace/>
-                      REQUIRED. Time at which the JWK was issued,
+                      REQUIRED. Time at which the key was issued,
                       using the time format defined for the
                       <spanx style="verb">iat</spanx> claim in
                       <xref target="RFC7519"/>.
@@ -3117,7 +3131,7 @@ Host: trust-anchor.example.com
                       using the time format defined for the
                       <spanx style="verb">exp</spanx> claim in
                       <xref target="RFC7519"/>,
-                      on or after which the JWK MUST NOT be considered as valid.
+                      on or after which the key MUST NOT be considered as valid.
                     </t>
                     <t hangText="revoked">
                       <vspace/>
@@ -6181,27 +6195,14 @@ Host: op.umu.se
           </t>
           <figure>
             <artwork><![CDATA[
-
 {
   "trust_anchor_id": "https://edugain.geant.org",
   "metadata_policy": {
     "openid_relying_party": {
-      "application_type": {
-        "one_of": [
-          "web",
-          "native"
-        ]
-      },
       "contacts": {
         "add": [
           "ops@incommon.org",
           "ops@edugain.geant.org"
-        ]
-      },
-      "grant_types": {
-        "subset_of": [
-          "authorization_code",
-          "refresh_token"
         ]
       }
     }
@@ -6212,7 +6213,7 @@ Host: op.umu.se
       "client_secret_expires_at": 1604049619,
       "client_secret":
         "cb44eed577f3b5edf3e08362d47a0dc44630b3dc6ea99f7a79205"
-      "client_id_issued_at": 1601457619,
+      "client_id_issued_at": 1601457619
     }
   },
   "authority_hints": [
