@@ -17,7 +17,6 @@ pipelines:
           - mv openid-connect-self-issued-v2/openid-connect-self-issued-v2-*.html openid-connect-self-issued-v2-1_0.html
           - mv openid-4-verifiable-presentations-over-ble/openid-4-verifiable-presentations-over-ble-*.html openid-4-verifiable-presentations-over-ble.html
           - mv openid-connect-userinfo-vc-*.html openid-connect-userinfo-vc.html
-          openid-connect-userinfo-vc-1_0.md
         artifacts:
           - '*.html'
           - '*.xml'
