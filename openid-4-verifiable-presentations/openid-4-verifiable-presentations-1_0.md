@@ -228,11 +228,11 @@ Presentation of Verifiable Credentials using OpenID for Verifiable Presentations
 
 # Authorization Request {#vp_token_request}
 
-The Authorization Request follows the definition given in [@!RFC6749].
+The Authorization Request follows the definition given in [@!RFC6749] taking into account the recommendations given in [@!I-D.ietf-oauth-security-topics].
 
 The Verifier may send an Authorization Request as Request Object by value or by reference as defined in JWT-Secured Authorization Request (JAR) [@RFC9101].
 
-The Verifier articulates requirements of the Credential(s) that are requested using `presentation_definition` and `presentation_definition_uri` parameters that contain a Presentation Definition JSON object as defined in Section 5 of [@!DIF.PresentationExchange].
+The Verifier articulates requirements of the Credential(s) that are requested using `presentation_definition` and `presentation_definition_uri` parameters that contain a Presentation Definition JSON object as defined in Section 5 of [@!DIF.PresentationExchange]. Wallet implementations MUST process Presentation Definition JSON object and select candidate Verifiable Credential(s) using the evaluation process described in Section 8 of [@!DIF.PresentationExchange].
 
 The Verifier communicates a Client Identifier Scheme that indicate how the Wallet is supposed to interpret the Client Identifier and associated data in the process of Client identification, authentication, and authorization using `client_id_scheme` parameter. This parameter enables deployments of this specification to use different mechanisms to obtain and validate Client metadata beyond the scope of [@!RFC6749]. A certain Client Identifier Scheme MAY require the Verifier to sign the Authorization Request as means of authentication and/or pass additional parameters and require the Wallet to process them.
 
@@ -543,7 +543,7 @@ The following new Authorization Request parameter is defined to be used in conju
 
 Note: The Verifier's component providing the user interface (Frontend) and the Verifier's component providing the Response URI (Response Endpoint) need to be able to map authorization requests to the respective authorization responses. The Verifier MAY use the `state` Authorization Request parameter to add appropriate data to the Authorization Response for that purpose, for details see (#implementation_considerations_direct_post). 
 
-Note: If the Client Identifier scheme `redirect_uri` is used in conjunction with the Response Mode `direct_post`, and the `redirect_uri` parameter is present, the `client_id` value MUST be equal to the `response_uri` value.
+Note: If the Client Identifier scheme `redirect_uri` is used in conjunction with the Response Mode `direct_post`, and the `response_uri` parameter is present, the `client_id` value MUST be equal to the `response_uri` value.
 
 The following is a non-normative example of the payload of a Request Object with Response Mode `direct_post`:
 
