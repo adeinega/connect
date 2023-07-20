@@ -65,7 +65,7 @@
       </address>
     </author>
 
-    <date day="13" month="June" year="2023" />
+    <date day="17" month="July" year="2023" />
 
     <workgroup>OpenID Connect Working Group</workgroup>
 
@@ -4793,7 +4793,7 @@
 	</t>
 
 	<section anchor="CreateRequestUri"
-		 title="URL Referencing the Request Object">
+		 title="URI Referencing the Request Object">
 	  <t>
 	    The Client stores the Request Object resource either
 	    locally or remotely at a URL the Server can access.
@@ -9412,6 +9412,9 @@
 	  </t>
 	  <t>
 	    Fixed #977: Return HTTP 400 (Bad Request) when the Response Mode is not supported.
+	  </t>
+	  <t>
+	    Fixed #1169: Changed URL to URI in a section title.
 	  </t>
 	  <t>
 	    Updated contributor affiliations.
