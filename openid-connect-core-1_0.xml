@@ -65,7 +65,7 @@
       </address>
     </author>
 
-    <date day="13" month="June" year="2023" />
+    <date day="17" month="July" year="2023" />
 
     <workgroup>OpenID Connect Working Group</workgroup>
 
@@ -4352,6 +4352,10 @@
   }
 ]]></artwork>
 	      </figure>
+	    </t>
+	    <t>
+	      Note that not returning <spanx style="verb">phone_number</spanx>, which is held by Claims Provider B,
+	      demonstrates that not all Claims held by a utilized Claims Provider need be included.
 	    </t>
 	  </section>
 
@@ -9412,6 +9416,9 @@
 	  </t>
 	  <t>
 	    Fixed #977: Return HTTP 400 (Bad Request) when the Response Mode is not supported.
+	  </t>
+	  <t>
+	    Fixed #1065: Clarified that not all Claims from utilized Claims Providers need be returned.
 	  </t>
 	  <t>
 	    Updated contributor affiliations.
