@@ -9415,7 +9415,7 @@
 	    Fixed #977: Return HTTP 400 (Bad Request) when the Response Mode is not supported.
 	  </t>
 	  <t>
-	    Fixed #1115: Said that it is not an error condition to not return a requested claim.
+	    Fixed #1115: Said that it is not an error condition to not return a requested Claim.
 	  </t>
 	  <t>
 	    Updated contributor affiliations.
