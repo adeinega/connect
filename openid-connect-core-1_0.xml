@@ -4793,7 +4793,7 @@
 	</t>
 
 	<section anchor="CreateRequestUri"
-		 title="URL Referencing the Request Object">
+		 title="URI Referencing the Request Object">
 	  <t>
 	    The Client stores the Request Object resource either
 	    locally or remotely at a URL the Server can access.
@@ -9418,6 +9418,9 @@
 	  </t>
 	  <t>
 	    Fixed #1115: Said that it is not an error condition to not return a requested Claim.
+	  </t>
+	  <t>
+	    Fixed #1169: Changed URL to URI in a section title.
 	  </t>
 	  <t>
 	    Updated contributor affiliations.
