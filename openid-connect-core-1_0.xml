@@ -3477,6 +3477,7 @@
 	  <t>
 	    For privacy reasons, OpenID Providers MAY elect to not return
 	    values for some requested Claims.
+	    It is not an error condition to not return a requested Claim.
 	  </t>
 	  <t>
 	    If a Claim is not returned, that Claim Name SHOULD be
@@ -9414,6 +9415,9 @@
 	  </t>
 	  <t>
 	    Fixed #1051: Deleted erroneous sentence about the <spanx style="verb">claims</spanx> parameter and non-standard Claims.
+	  </t>
+	  <t>
+	    Fixed #1115: Said that it is not an error condition to not return a requested Claim.
 	  </t>
 	  <t>
 	    Updated contributor affiliations.
