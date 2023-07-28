@@ -3936,12 +3936,24 @@
 		    Definitions of individual Claims can include requirements on
 		    how and whether the <spanx style="verb">value</spanx>
 		    qualifier is to be used when requesting that Claim.
+		    An equality comparison is used to determine whether the requested Claim value matches.
+		  </t>
+		  <t>
+		    When the Claim value does not match the requested value,
+		    the Claim is not included in the response.
+		    If the Claim was <spanx style="verb">sub</spanx>,
+		    a mismatch MUST cause the authentication to fail,
+		    as described in <xref target="AuthRequestValidation"/>.
 		  </t>
 		  <t hangText="values">
 		    <vspace/>
 		    OPTIONAL.
 		    Requests that the Claim be returned with one of a set of values,
 		    with the values appearing in order of preference.
+		    This is processed equivalently to a <spanx style="verb">value</spanx> request,
+		    except that a choice of acceptable Claim values is provided.
+		  </t>
+		  <t>
 		    For instance, the Claim request:
 
 		    <figure>
@@ -3963,6 +3975,11 @@
 		    Definitions of individual Claims can include requirements on
 		    how and whether the <spanx style="verb">values</spanx>
 		    qualifier is to be used when requesting that Claim.
+		    An equality comparison is used to determine whether the requested Claim values match.
+		  </t>
+		  <t>
+		    When the Claim value does not match any of the requested values,
+		    the Claim is not included in the response.
 		  </t>
 		</list>
 	      </t>
@@ -9561,6 +9578,9 @@
 	  </t>
 	  <t>
 	    Fixed #1046: Augmented <spanx style="verb">login_hint</spanx> description.
+	  </t>
+	  <t>
+	    Fixed #1114: Clarified <spanx style="verb">value</spanx>.
 	  </t>
 	  <t>
 	    Updated contributor affiliations.
