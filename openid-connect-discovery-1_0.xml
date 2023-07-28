@@ -102,6 +102,14 @@
 	This process is described in <xref target="ProviderConfig"/>.
       </t>
 
+      <t>
+	The previous versions of this specification are:
+	<list style="symbols">
+	  <t><xref target="OpenID.Discovery.Errata1">OpenID Connect Discovery 1.0 incorporating errata set 1</xref></t>
+	  <t><xref target="OpenID.Discovery.Final">OpenID Connect Discovery 1.0 (final)</xref></t>
+	</list>
+      </t>
+
       <section anchor="rnc" title="Requirements Notation and Conventions">
 	<t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
 	"SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this
@@ -2192,6 +2200,54 @@
 
     <references title="Informative References">
 
+      <reference anchor="OpenID.Discovery.Errata1" target="http://openid.net/specs/openid-connect-discovery-1_0-errata1.html">
+	<front>
+	  <title>OpenID Connect Discovery 1.0 incorporating errata set 1</title>
+
+	  <author fullname="Nat Sakimura" initials="N." surname="Sakimura">
+	    <organization abbrev="NRI">Nomura Research Institute, Ltd.</organization>
+	  </author>
+
+	  <author fullname="John Bradley" initials="J." surname="Bradley">
+	    <organization abbrev="Ping Identity">Ping Identity</organization>
+	  </author>
+
+	  <author fullname="Michael B. Jones" initials="M.B." surname="Jones">
+	    <organization abbrev="Microsoft">Microsoft</organization>
+	  </author>
+
+	  <author fullname="Edmund Jay" initials="E." surname="Jay">
+	    <organization abbrev="Illumila">Illumila</organization>
+	  </author>
+
+	  <date day="8" month="November" year="2014"/>
+	</front>
+      </reference>
+
+      <reference anchor="OpenID.Discovery.Final" target="http://openid.net/specs/openid-connect-discovery-1_0-final.html">
+	<front>
+	  <title>OpenID Connect Discovery 1.0 (final)</title>
+
+	  <author fullname="Nat Sakimura" initials="N." surname="Sakimura">
+	    <organization abbrev="NRI">Nomura Research Institute, Ltd.</organization>
+	  </author>
+
+	  <author fullname="John Bradley" initials="J." surname="Bradley">
+	    <organization abbrev="Ping Identity">Ping Identity</organization>
+	  </author>
+
+	  <author fullname="Michael B. Jones" initials="M.B." surname="Jones">
+	    <organization abbrev="Microsoft">Microsoft</organization>
+	  </author>
+
+	  <author fullname="Edmund Jay" initials="E." surname="Jay">
+	    <organization abbrev="Illumila">Illumila</organization>
+	  </author>
+
+	  <date day="25" month="February" year="2014"/>
+	</front>
+      </reference>
+
       <reference anchor="OWASP.CSRF" target="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html">
         <front>
           <title>Cross-Site Request Forgery Prevention Cheat Sheet</title>
@@ -2366,6 +2422,9 @@
 	  </t>
 	  <t>
 	    Fixed #974: Replaced uses of <spanx style="verb">RSA1_5</spanx> with <spanx style="verb">RSA-OAEP-256</spanx>.
+	  </t>
+	  <t>
+	    Fixed #978: Referenced previous versions.
 	  </t>
 	  <t>
 	    Updated contributor affiliations.
