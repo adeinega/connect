@@ -3190,8 +3190,8 @@
 
 	  <c>zoneinfo</c>
 	  <c>string</c>
-	  <c>String from zoneinfo <xref target="zoneinfo"/> time zone
-	  database representing the End-User's time zone.
+	  <c>String from IANA Time Zone Database <xref target="IANA.time-zones"/>
+	  representing the End-User's time zone.
 	  For example, <spanx style="verb">Europe/Paris</spanx> or
 	  <spanx style="verb">America/Los_Angeles</spanx>.</c>
 
@@ -8605,16 +8605,14 @@
 	</front>
       </reference>
 
-      <reference anchor="zoneinfo" target="http://www.twinsun.com/tz/tz-link.htm">
-	<front>
-	  <title>The tz database</title>
-
-	  <author fullname="Public Domain">
-	    <organization abbrev="Public">Public Domain</organization>
-	  </author>
-
-	  <date month="June" year="2011" />
-	</front>
+      <reference anchor="IANA.time-zones" target="https://www.iana.org/time-zones">
+        <front>
+          <title>Time Zone Database</title>
+          <author>
+            <organization>IANA</organization>
+          </author>
+	  <date/>
+        </front>
       </reference>
 
       <reference anchor="OAuth.Responses" target="https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html">
@@ -9550,7 +9548,7 @@
 	-32
         <list style="symbols">
 	  <t>
-	    TBD
+	    Use IANA Time Zone Database for <spanx style="verb">zoneinfo</spanx> Claim values.
 	  </t>
 	</list>
       </t>
