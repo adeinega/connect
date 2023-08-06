@@ -4156,6 +4156,8 @@
 		Claims. The member values are references to the member names
 		in the <spanx style="verb">_claim_sources</spanx> member from which
 		the actual Claim Values can be retrieved.
+		The OP MAY omit some Claims available from referenced Claims Providers
+		from the set of Claim Names.
 	      </t>
 
 	      <t hangText="_claim_sources">
@@ -4226,6 +4228,12 @@
 			End-User and/or reauthorize the RP.
 		      </t>
 		    </list>
+		  </t>
+		  <t>
+		    Since it is not an error condition to not return a requested Claim,
+		    RPs MUST be prepared to handle the condition that some Claims listed in
+		    <spanx style="verb">_claim_sources</spanx> are not returned from the Claims Provider.
+		    They SHOULD treat this the same as when any other requested Claim is not returned.
 		  </t>
 		  <t>
 		    A <spanx style="verb">sub</spanx> (subject) Claim SHOULD NOT
@@ -9550,7 +9558,10 @@
 	-32
         <list style="symbols">
 	  <t>
-	    TBD
+	    Fixed #1050: The OP MAY omit Claims available from Claims Providers from <spanx style="verb">_claim_names</spanx>.
+	  </t>
+	  <t>
+	    Fixed #1117: It is not an error condition for a Claims Provider to not return a requested Claim.
 	  </t>
 	</list>
       </t>
