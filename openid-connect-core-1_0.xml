@@ -1187,7 +1187,7 @@
 		  being passed as a hint about the End-User's current or past
 		  authenticated session with the Client.
 		  If the End-User identified by the ID Token is already logged in
-		  or is logged in by the request
+		  or is logged in as a result of the request
 		  (with the OP possibly evaluating other information beyond the ID Token in this decision),
 		  then the Authorization Server returns a positive response;
 		  otherwise, it MUST return
