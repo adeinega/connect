@@ -3554,11 +3554,11 @@
 	  </t>
 	  <t>
 	    If signed, the UserInfo Response
-	    SHOULD contain the Claims
+	    MUST contain the Claims
 	    <spanx style="verb">iss</spanx> (issuer)
 	    and <spanx style="verb">aud</spanx> (audience) as members.
-	    The <spanx style="verb">iss</spanx> value SHOULD be the OP's Issuer Identifier URL.
-	    The <spanx style="verb">aud</spanx> value SHOULD be or include the RP's Client ID value.
+	    The <spanx style="verb">iss</spanx> value MUST be the OP's Issuer Identifier URL.
+	    The <spanx style="verb">aud</spanx> value MUST be or include the RP's Client ID value.
 	  </t>
 
 	  <figure>
@@ -4433,7 +4433,7 @@
 
 	<t>
 	  The <spanx style="verb">sub</spanx> (subject) and
-	  <spanx style="verb">iss</spanx> (issuer) Claims, used together,
+	  <spanx style="verb">iss</spanx> (issuer) Claims from the ID Token, used together,
 	  are the only Claims that an RP
 	  can rely upon as a stable identifier for the End-User,
 	  since the <spanx style="verb">sub</spanx>
@@ -4452,9 +4452,11 @@
 	  <spanx style="verb">email</spanx> address for a given End-User MAY change 
 	  over time.
 	  Therefore, other Claims such as <spanx style="verb">email</spanx>,
-	  <spanx style="verb">phone_number</spanx>, and
-	  <spanx style="verb">preferred_username</spanx>
-	  and MUST NOT be used as unique identifiers for the End-User.
+	  <spanx style="verb">phone_number</spanx>,
+	  <spanx style="verb">preferred_username</spanx>,
+	  and <spanx style="verb">name</spanx>
+	  MUST NOT be used as unique identifiers for the End-User,
+	  whether obtained from the ID Token or the UserInfo Endpoint.
 	</t>
 
       </section>
@@ -9632,6 +9634,9 @@
 	  </t>
 	  <t>
 	    Fixed #1026: Added Security Considerations about custom URI schemes on iOS.
+	  </t>
+	  <t>
+	    Fixed #989: Only <spanx style="verb">iss</spanx> and <spanx style="verb">sub</spanx> from the ID Token provide a stable identifier for the End-User.
 	  </t>
 	</list>
       </t>
