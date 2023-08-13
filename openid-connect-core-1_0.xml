@@ -4022,7 +4022,7 @@
 	    <t>
 	      If the <spanx style="verb">acr</spanx> Claim is requested
 	      as an Essential Claim for the ID Token
-	      with a <spanx style="verb">values</spanx> parameter requesting
+	      with a <spanx style="verb">value</spanx> or <spanx style="verb">values</spanx> parameter requesting
 	      specific Authentication Context Class Reference values and
 	      the implementation supports the <spanx style="verb">claims</spanx> parameter,
 	      the Authorization Server MUST return an <spanx style="verb">acr</spanx>
@@ -7138,8 +7138,8 @@
 
       <section anchor="ClaimsRegistry" title="JSON Web Token Claims Registration">
 	<t>
-	  This specification registers the Claims defined in
-	  <xref target="StandardClaims"/> and <xref target="IDToken"/> in the IANA
+	  This specification registers the following Claims
+	  in the IANA
 	  "JSON Web Token Claims" registry <xref target="IANA.JWT.Claims"/>
 	  established by <xref target="JWT"/>.
 	</t>
@@ -9547,6 +9547,10 @@
       <t>
 	-32
         <list style="symbols">
+	  <t>
+	    Fixed #1143: Changed <spanx style="verb">values</spanx> to
+	    <spanx style="verb">value</spanx> or <spanx style="verb">values</spanx>.
+	  </t>
 	  <t>
 	    Use IANA Time Zone Database for <spanx style="verb">zoneinfo</spanx> Claim values.
 	  </t>
