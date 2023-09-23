@@ -43,7 +43,7 @@
     </author>
 
     <author fullname="Michael B. Jones" initials="M.B." surname="Jones">
-      <organization abbrev="independent (was at Microsoft)">independent</organization>
+      <organization abbrev="Self-Issued Consulting (was at Microsoft)">Self-Issued Consulting</organization>
       <address>
         <email>michael_b_jones@hotmail.com</email>
 	<uri>https://self-issued.info/</uri>
@@ -2928,7 +2928,7 @@
           </author>
 
           <author fullname="Michael B. Jones" initials="M.B." surname="Jones">
-            <organization abbrev="independent (was at Microsoft)">independent</organization>
+            <organization abbrev="Self-Issued Consulting (was at Microsoft)">Self-Issued Consulting</organization>
           </author>
 
           <author fullname="Breno de Medeiros" initials="B." surname="de Medeiros">
@@ -2956,7 +2956,7 @@
           </author>
 
           <author fullname="Michael B. Jones" initials="M.B." surname="Jones">
-            <organization abbrev="independent (was at Microsoft)">independent</organization>
+            <organization abbrev="Self-Issued Consulting (was at Microsoft)">Self-Issued Consulting</organization>
           </author>
 
           <author fullname="Edmund Jay" initials="E." surname="Jay">
@@ -2980,7 +2980,7 @@
           </author>
 
           <author fullname="Michael B. Jones" initials="M.B." surname="Jones">
-            <organization abbrev="independent (was at Microsoft)">independent</organization>
+            <organization abbrev="Self-Issued Consulting (was at Microsoft)">Self-Issued Consulting</organization>
           </author>
 
           <date day="8" month="November" year="2014"/>
@@ -3142,7 +3142,7 @@
           </author>
 
           <author fullname="Michael B. Jones" initials="M.B." surname="Jones">
-            <organization abbrev="independent">independent</organization>
+            <organization abbrev="Self-Issued Consulting">Self-Issued Consulting</organization>
           </author>
 
           <author fullname="Breno de Medeiros" initials="B." surname="de Medeiros">
@@ -3204,8 +3204,8 @@
 	  <t>Roland Hedberg (roland@catalogix.se), independent</t>
           <t>Ryo Ito (ryo.ito@mixi.co.jp), mixi, Inc.</t>
           <t>Edmund Jay (ejay@mgi1.com), Illumila</t>
-          <t>Michael B. Jones (michael_b_jones@hotmail.com), independent</t>
-	  <t>Torsten Lodderstedt (torsten@lodderstedt.net), yes.com</t>
+          <t>Michael B. Jones (michael_b_jones@hotmail.com), Self-Issued Consulting</t>
+	  <t>Torsten Lodderstedt (torsten@lodderstedt.net), independent</t>
           <t>Nov Matake (nov@matake.jp), independent</t>
           <t>Chuck Mortimore (charliemortimore@gmail.com), Disney</t>
           <t>Anthony Nadalin (nadalin@prodigy.net), independent</t>
