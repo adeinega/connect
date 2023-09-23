@@ -8609,7 +8609,7 @@
 	    <organization abbrev="ISO">International Organization for Standardization</organization>
 	  </author>
 
-	  <date month="March" year="2013" />
+	  <date month="April" year="2013" />
 	</front>
 
 	<seriesInfo name="ISO/IEC" value="29115" />
@@ -9612,7 +9612,7 @@
 	-33
         <list style="symbols">
 	  <t>
-	    TBD
+	    Fixed #2030: Corrected ISO/IEC 29115 date to April 2013.
 	  </t>
 	</list>
       </t>

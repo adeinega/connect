@@ -2497,7 +2497,7 @@
             <organization abbrev="ISO">International Organization for Standardization</organization>
           </author>
 
-          <date month="March" year="2013" />
+          <date month="April" year="2013" />
         </front>
 
 	<seriesInfo name="ISO/IEC" value="29115" />
@@ -2845,7 +2845,7 @@
 	    extensions are used that are beyond the scope of this specification.
 	  </t>
 	  <t>
-	    TBD
+	    Fixed #2030: Corrected ISO/IEC 29115 date to April 2013.
 	  </t>
 	</list>
       </t>
