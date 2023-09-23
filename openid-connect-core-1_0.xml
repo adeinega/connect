@@ -9614,7 +9614,7 @@
 	-33
         <list style="symbols">
 	  <t>
-	    TBD
+	    Fixed #2026: Clarified description of loopback hostnames for native applications.
 	  </t>
 	</list>
       </t>
