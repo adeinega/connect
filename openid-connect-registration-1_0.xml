@@ -309,9 +309,10 @@
 	    <spanx style="verb">redirect_uris</spanx>;
 	    they MUST NOT use <spanx style="verb">localhost</spanx> as the hostname.
 	    Native Clients MUST only register <spanx style="verb">redirect_uris</spanx> using custom
-	    URI schemes or loopback URLs using the <spanx style="verb">http:</spanx> scheme;
+	    URI schemes or loopback URLs using the <spanx style="verb">http</spanx> scheme;
 	    loopback URLs use <spanx style="verb">localhost</spanx> or the IP loopback literals
-	    <spanx style="verb">127.0.0.1</spanx> or <spanx style="verb">::1</spanx> as the hostname.
+	    <spanx style="verb">127.0.0.1</spanx> or <spanx style="verb">::1</spanx>
+	    as the hostname.
 	    Authorization Servers MAY place additional constraints on Native Clients.
 	    Authorization Servers MAY reject Redirection URI values
 	    using the <spanx style="verb">http</spanx> scheme, other than the

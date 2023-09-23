@@ -2149,8 +2149,10 @@
 		  When using this flow, the Redirection URI
 		  MUST NOT use the <spanx style="verb">http</spanx> scheme
 		  unless the Client is a native application, in which case it MAY
-		  use the <spanx style="verb">http:</spanx> scheme with
-		  <spanx style="verb">localhost</spanx> as the hostname.
+		  use the <spanx style="verb">http</spanx> scheme with
+		  <spanx style="verb">localhost</spanx> or the IP loopback literals
+		  <spanx style="verb">127.0.0.1</spanx> or <spanx style="verb">::1</spanx>
+		  as the hostname.
 		</t>
 
 		<t hangText="nonce">
