@@ -7099,6 +7099,13 @@
 	  from the Self-Issued OpenID Provider.
 	  Use of a claimed URI is an alternative to using the <spanx style="verb">openid:</spanx> custom URI scheme.
 	</t>
+	<t>
+	  While it is possible to assign handlers to custom URI schemes
+	  and it is possible that the operating system could help the End-User select the correct handler,
+	  it is not possible to guarantee that the handler for a given custom URI scheme has not been replaced
+	  by a subsequently installed native application.
+	  At the time of this writing, there appears to be no fool-proof mitigation for this vulnerability.
+	</t>
       </section>
 
     </section>
@@ -9667,6 +9674,9 @@
 	  </t>
 	  <t>
 	    Fixed #2026: Clarified description of loopback hostnames for native applications.
+	  </t>
+	  <t>
+	    Fixed #2066: Included additional Security Considerations for Custom URI Schemes on iOS.
 	  </t>
 	</list>
       </t>
