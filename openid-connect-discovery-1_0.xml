@@ -1239,7 +1239,9 @@
 	</t>
         <t>
 	  The <spanx style="verb">issuer</spanx> value returned MUST be identical to
-	  the Issuer URL that was directly used to retrieve the configuration information.
+	  the Issuer URL that was used as the prefix
+	  to <spanx style="verb">/.well-known/openid-configuration</spanx>
+	  to retrieve the configuration information.
 	  This MUST also be identical to the <spanx style="verb">iss</spanx> Claim value
 	  in ID Tokens issued from this Issuer.
 	</t>
@@ -2433,6 +2435,9 @@
         <list style="symbols">
 	  <t>
 	    Fixed #2027: Updated speculative language that anticipated standardization of The 'acct' URI Scheme [RFC 7565].
+	  </t>
+	  <t>
+	    Fixed #2031: Clarified sentence about issuer value.
 	  </t>
 	</list>
       </t>
