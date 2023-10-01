@@ -43,7 +43,7 @@
     </author>
 
     <author fullname="Michael B. Jones" initials="M.B." surname="Jones">
-      <organization abbrev="independent (was at Microsoft)">independent</organization>
+      <organization abbrev="Self-Issued Consulting (was at Microsoft)">Self-Issued Consulting</organization>
       <address>
         <email>michael_b_jones@hotmail.com</email>
 	<uri>https://self-issued.info/</uri>
@@ -920,8 +920,7 @@
 	  <artwork><![CDATA[
   HTTP/1.1 201 Created
   Content-Type: application/json
-  Cache-Control: no-cache, no-store
-  Pragma: no-cache
+  Cache-Control: no-store
 
   {
    "client_id": "s6BhdRkqt3",
@@ -1020,8 +1019,7 @@
 	    <artwork><![CDATA[
   HTTP/1.1 400 Bad Request
   Content-Type: application/json
-  Cache-Control: no-cache, no-store
-  Pragma: no-cache
+  Cache-Control: no-store
    
   {
    "error": "invalid_redirect_uri",
@@ -1142,8 +1140,7 @@
           <artwork><![CDATA[
   HTTP/1.1 200 OK
   Content-Type: application/json
-  Cache-Control: no-cache, no-store
-  Pragma: no-cache
+  Cache-Control: no-store
 
   {
    "client_id": "s6BhdRkqt3",
@@ -1206,8 +1203,7 @@
   HTTP/1.1 401 Unauthorized
   WWW-Authenticate: Bearer error="invalid_token",
     error_description="The access token expired"
-  Cache-Control: no-cache, no-store
-  Pragma: no-cache
+  Cache-Control: no-store
 ]]></artwork>
 	  </figure>
 	</t>
@@ -1248,8 +1244,7 @@
 
   HTTP/1.1 200 OK
   Content-Type: application/json
-  Cache-Control: no-cache, no-store
-  Pragma: no-cache
+  Cache-Control: no-store
 
   [ "https://client.example.org/callback",
     "https://client.example.org/callback2",
@@ -2058,7 +2053,7 @@
           </author>
 
           <author fullname="Michael B. Jones" initials="M.B." surname="Jones">
-            <organization abbrev="independent (was at Microsoft)">independent</organization>
+            <organization abbrev="Self-Issued Consulting (was at Microsoft)">Self-Issued Consulting</organization>
           </author>
 
           <author fullname="Breno de Medeiros" initials="B." surname="de Medeiros">
@@ -2086,7 +2081,7 @@
           </author>
 
           <author fullname="Michael B. Jones" initials="M.B." surname="Jones">
-            <organization abbrev="independent (was at Microsoft)">independent</organization>
+            <organization abbrev="Self-Issued Consulting (was at Microsoft)">Self-Issued Consulting</organization>
           </author>
 
           <author fullname="Edmund Jay" initials="E." surname="Jay">
@@ -2358,8 +2353,8 @@
 	  <t>George Fletcher (gffletch@aol.com), Capital One (was at AOL)</t>
 	  <t>Roland Hedberg (roland@catalogix.se), independent (was at University of Ume&aring;)</t>
           <t>Edmund Jay (ejay@mgi1.com), Illumila</t>
-          <t>Michael B. Jones (michael_b_jones@hotmail.com), independent (was at Microsoft)</t>
-	  <t>Torsten Lodderstedt (torsten@lodderstedt.net), yes.com (was at Deutsche Telekom)</t>
+          <t>Michael B. Jones (michael_b_jones@hotmail.com), Self-Issued Consulting (was at Microsoft)</t>
+	  <t>Torsten Lodderstedt (torsten@lodderstedt.net), independent (was at Deutsche Telekom)</t>
 	  <t>Justin Richer (justin@bspk.io), Bespoke Engineering (was at MITRE)</t>
           <t>Nat Sakimura (nat@nat.consulting), NAT.Consulting (was at NRI)</t>
 
@@ -2416,7 +2411,7 @@
 	-38
         <list style="symbols">
 	  <t>
-	    TBD
+	    Fixed #2025 - Removed "Pragma: no-cache" and changed "Cache-Control: no-cache, no-store" to "Cache-Control: no-store".
 	  </t>
 	</list>
       </t>
