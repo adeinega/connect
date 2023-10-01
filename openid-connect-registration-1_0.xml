@@ -88,7 +88,7 @@
 	to provide the OP information about itself and
 	to obtain information needed to use it,
 	including an OAuth 2.0 Client ID.
-	This document describes how an RP
+	This specification describes how an RP
 	can register with an OP, and how registration information
 	for the RP can be retrieved.
       </t>
@@ -108,11 +108,11 @@
 	target="RFC2119">RFC 2119</xref>.</t>
 
 	<t>
-	  In the .txt version of this document,
+	  In the .txt version of this specification,
 	  values are quoted to indicate that they are to be taken literally.
 	  When using these values in protocol messages,
 	  the quotes MUST NOT be used as part of the value.
-	  In the HTML version of this document,
+	  In the HTML version of this specification,
 	  values to be taken literally are indicated by
 	  the use of <spanx style="verb">this fixed-width font</spanx>.
 	</t>
@@ -1460,7 +1460,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -1476,7 +1476,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -1493,7 +1493,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -1511,7 +1511,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -1529,7 +1529,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -1547,7 +1547,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -1564,7 +1564,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -1581,7 +1581,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -1598,7 +1598,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -1616,7 +1616,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -1634,7 +1634,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -1652,7 +1652,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -1672,7 +1672,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -1688,7 +1688,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -1705,7 +1705,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -1721,7 +1721,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -1738,7 +1738,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -1755,7 +1755,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="ClientMetadata"/> of this document
+		Specification Document(s): <xref target="ClientMetadata"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -2147,10 +2147,6 @@
 
 	  <author fullname="Michael B. Jones" initials="M.B." surname="Jones">
 	    <organization>Microsoft</organization>
-	  </author>
-
-	  <author fullname="Eric Rescorla" initials="E." surname="Rescorla">
-	    <organization>RTFM, Inc.</organization>
 	  </author>
 
 	  <author fullname="Joe Hildebrand" initials="J." surname="Hildebrand">

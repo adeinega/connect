@@ -163,11 +163,11 @@
 	target="RFC2119">RFC 2119</xref>.</t>
 
 	<t>
-	  In the .txt version of this document,
+	  In the .txt version of this specification,
 	  values are quoted to indicate that they are to be taken literally.
 	  When using these values in protocol messages,
 	  the quotes MUST NOT be used as part of the value.
-	  In the HTML version of this document,
+	  In the HTML version of this specification,
 	  values to be taken literally are indicated by
 	  the use of <spanx style="verb">this fixed-width font</spanx>.
 	</t>
@@ -7215,7 +7215,7 @@
 	      Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	    </t>
 	    <t>
-	      Specification Document(s): <xref target="StandardClaims"/> of this document
+	      Specification Document(s): <xref target="StandardClaims"/> of this specification
 	    </t>
 	  </list>
 	  </t>
@@ -7231,7 +7231,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7247,7 +7247,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7263,7 +7263,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7279,7 +7279,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7295,7 +7295,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7311,7 +7311,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7327,7 +7327,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7343,7 +7343,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7359,7 +7359,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7375,7 +7375,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7391,7 +7391,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7407,7 +7407,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7423,7 +7423,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7439,7 +7439,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7455,7 +7455,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7471,7 +7471,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7487,7 +7487,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7503,7 +7503,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="StandardClaims"/> of this document
+		Specification Document(s): <xref target="StandardClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7519,7 +7519,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="IDToken"/> of this document
+		Specification Document(s): <xref target="IDToken"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7535,7 +7535,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="IDToken"/> of this document
+		Specification Document(s): <xref target="IDToken"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7551,7 +7551,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="IDToken"/> of this document
+		Specification Document(s): <xref target="IDToken"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7567,7 +7567,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="IDToken"/> of this document
+		Specification Document(s): <xref target="IDToken"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7583,7 +7583,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="HybridIDToken"/> of this document
+		Specification Document(s): <xref target="HybridIDToken"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7599,7 +7599,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="IDToken"/> of this document
+		Specification Document(s): <xref target="IDToken"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7615,7 +7615,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="IDToken"/> of this document
+		Specification Document(s): <xref target="IDToken"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7631,7 +7631,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="SelfIssuedResponse"/> of this document
+		Specification Document(s): <xref target="SelfIssuedResponse"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7647,7 +7647,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="AggregatedDistributedClaims"/> of this document
+		Specification Document(s): <xref target="AggregatedDistributedClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7663,7 +7663,7 @@
 		Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
 	      </t>
 	      <t>
-		Specification Document(s): <xref target="AggregatedDistributedClaims"/> of this document
+		Specification Document(s): <xref target="AggregatedDistributedClaims"/> of this specification
 	      </t>
 	    </list>
 	  </t>
@@ -7689,7 +7689,7 @@
 
 	    <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	    <t>Specification document(s): <xref target="AuthorizationEndpoint"/> of this document</t>
+	    <t>Specification document(s): <xref target="AuthorizationEndpoint"/> of this specification</t>
 
 	    <t>Related information: None</t>
 	  </list>
@@ -7703,7 +7703,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="AuthorizationEndpoint"/> of this document</t>
+	      <t>Specification document(s): <xref target="AuthorizationEndpoint"/> of this specification</t>
 
 	      <t>Related information: None</t>
 	    </list>
@@ -7717,7 +7717,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="AuthorizationEndpoint"/> of this document</t>
+	      <t>Specification document(s): <xref target="AuthorizationEndpoint"/> of this specification</t>
 
 	      <t>Related information: None</t>
 	    </list>
@@ -7731,7 +7731,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="AuthorizationEndpoint"/> of this document</t>
+	      <t>Specification document(s): <xref target="AuthorizationEndpoint"/> of this specification</t>
 
 	      <t>Related information: None</t>
 	    </list>
@@ -7745,7 +7745,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="AuthorizationEndpoint"/> of this document</t>
+	      <t>Specification document(s): <xref target="AuthorizationEndpoint"/> of this specification</t>
 
 	      <t>Related information: None</t>
 	    </list>
@@ -7759,7 +7759,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="ClaimsLanguagesAndScripts"/> of this document</t>
+	      <t>Specification document(s): <xref target="ClaimsLanguagesAndScripts"/> of this specification</t>
 
 	      <t>Related information: None</t>
 	    </list>
@@ -7773,7 +7773,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="AuthorizationEndpoint"/> of this document</t>
+	      <t>Specification document(s): <xref target="AuthorizationEndpoint"/> of this specification</t>
 
 	      <t>Related information: None</t>
 	    </list>
@@ -7787,7 +7787,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="AuthorizationEndpoint"/> of this document</t>
+	      <t>Specification document(s): <xref target="AuthorizationEndpoint"/> of this specification</t>
 
 	      <t>Related information: None</t>
 	    </list>
@@ -7801,7 +7801,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="AuthorizationEndpoint"/> of this document</t>
+	      <t>Specification document(s): <xref target="AuthorizationEndpoint"/> of this specification</t>
 
 	      <t>Related information: None</t>
 	    </list>
@@ -7815,7 +7815,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="ClaimsParameter"/> of this document</t>
+	      <t>Specification document(s): <xref target="ClaimsParameter"/> of this specification</t>
 
 	      <t>Related information: None</t>
 	    </list>
@@ -7829,7 +7829,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="RegistrationParameter"/> of this document</t>
+	      <t>Specification document(s): <xref target="RegistrationParameter"/> of this specification</t>
 
 	      <t>Related information: None</t>
 	    </list>
@@ -7843,7 +7843,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="JWTRequests"/> of this document</t>
+	      <t>Specification document(s): <xref target="JWTRequests"/> of this specification</t>
 
 	      <t>Related information: None</t>
 	    </list>
@@ -7857,7 +7857,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="JWTRequests"/> of this document</t>
+	      <t>Specification document(s): <xref target="JWTRequests"/> of this specification</t>
 
 	      <t>Related information: None</t>
 	    </list>
@@ -7872,7 +7872,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="TokenResponse"/> of this document</t>
+	      <t>Specification document(s): <xref target="TokenResponse"/> of this specification</t>
 
 	      <t>Related information: None</t>
 	    </list>
@@ -7902,7 +7902,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="AuthError"/> of this document</t>
+	      <t>Specification document(s): <xref target="AuthError"/> of this specification</t>
 	    </list>
 	  </t>
 
@@ -7916,7 +7916,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="AuthError"/> of this document</t>
+	      <t>Specification document(s): <xref target="AuthError"/> of this specification</t>
 	    </list>
 	  </t>
 
@@ -7930,7 +7930,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="AuthError"/> of this document</t>
+	      <t>Specification document(s): <xref target="AuthError"/> of this specification</t>
 	    </list>
 	  </t>
 
@@ -7944,7 +7944,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="AuthError"/> of this document</t>
+	      <t>Specification document(s): <xref target="AuthError"/> of this specification</t>
 	    </list>
 	  </t>
 
@@ -7958,7 +7958,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="AuthError"/> of this document</t>
+	      <t>Specification document(s): <xref target="AuthError"/> of this specification</t>
 	    </list>
 	  </t>
 
@@ -7972,7 +7972,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="AuthError"/> of this document</t>
+	      <t>Specification document(s): <xref target="AuthError"/> of this specification</t>
 	    </list>
 	  </t>
 
@@ -7986,7 +7986,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="AuthError"/> of this document</t>
+	      <t>Specification document(s): <xref target="AuthError"/> of this specification</t>
 	    </list>
 	  </t>
 
@@ -8000,7 +8000,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="AuthError"/> of this document</t>
+	      <t>Specification document(s): <xref target="AuthError"/> of this specification</t>
 	    </list>
 	  </t>
 
@@ -8014,7 +8014,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>Specification document(s): <xref target="AuthError"/> of this document</t>
+	      <t>Specification document(s): <xref target="AuthError"/> of this specification</t>
 	    </list>
 	  </t>
 
@@ -8046,7 +8046,7 @@
 
 	      <t>Change controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net</t>
 
-	      <t>References: <xref target="SelfIssuedRequest"/> of this document</t>
+	      <t>References: <xref target="SelfIssuedRequest"/> of this specification</t>
 
 	    </list>
 	  </t>
@@ -8517,10 +8517,6 @@
 
 	  <author fullname="Michael B. Jones" initials="M.B." surname="Jones">
 	    <organization>Microsoft</organization>
-	  </author>
-
-	  <author fullname="Eric Rescorla" initials="E." surname="Rescorla">
-	    <organization>RTFM, Inc.</organization>
 	  </author>
 
 	  <author fullname="Joe Hildebrand" initials="J." surname="Hildebrand">
