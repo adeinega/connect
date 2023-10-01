@@ -641,13 +641,15 @@
 	    used in the authentication.
 	    For instance, values might indicate that both password and OTP
 	    authentication methods were used.
-	    The definition of particular values to be used in the
-	    <spanx style="verb">amr</spanx> Claim
-	    is beyond the scope of this specification.
-	    Parties using this claim will need to agree upon the meanings of
-	    the values used, which may be context specific.
 	    The <spanx style="verb">amr</spanx> value is an array of
 	    case-sensitive strings.
+	    Values used in the
+	    <spanx style="verb">amr</spanx> Claim
+	    SHOULD be from those registered in the
+	    IANA Authentication Method Reference Values registry <xref target="IANA.AMR"/>
+	    established by <xref target="RFC8176"/>;
+	    parties using this claim will need to agree upon the meanings of
+	    any unregistered values used, which may be context specific.
 	  </t>
 
 	  <t hangText="azp">
@@ -1809,11 +1811,8 @@
 
 	      <c>Cache-Control</c>
 
-	      <c>no-cache, no-store</c>
+	      <c>no-store</c>
 
-	      <c>Pragma</c>
-
-	      <c>no-cache</c>
 	    </texttable>
 
 	    <figure>
@@ -1826,8 +1825,7 @@
 	      <artwork><![CDATA[
   HTTP/1.1 200 OK
   Content-Type: application/json
-  Cache-Control: no-cache, no-store
-  Pragma: no-cache
+  Cache-Control: no-store
 
   {
    "access_token": "SlAV32hkKG",
@@ -1869,8 +1867,7 @@
 	      <artwork><![CDATA[
   HTTP/1.1 400 Bad Request
   Content-Type: application/json
-  Cache-Control: no-cache, no-store
-  Pragma: no-cache
+  Cache-Control: no-store
 
   {
    "error": "invalid_request"
@@ -4503,6 +4500,10 @@
 	If one of these parameters is used,
 	the other MUST NOT be used in the same request.
       </t>
+      <t>
+	Note that the Request Objects defined here are compatible with those specified by
+	<xref target="RFC9101">The OAuth 2.0 Authorization Framework: JWT-Secured Authorization Request (JAR)</xref>.
+      </t>
 
       <section title="Passing a Request Object by Value" anchor="RequestObject">
 
@@ -6179,8 +6180,7 @@
 	  <artwork><![CDATA[
   HTTP/1.1 200 OK
   Content-Type: application/json
-  Cache-Control: no-cache, no-store
-  Pragma: no-cache
+  Cache-Control: no-store
 
   {
    "access_token": "TlBN45jURg",
@@ -8320,6 +8320,23 @@
   <seriesInfo name="DOI" value="10.17487/RFC7234"/>
 </reference>
 
+      <!-- Reference from https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8176.xml -->
+
+<reference anchor="RFC8176" target="https://www.rfc-editor.org/info/rfc8176">
+  <front>
+    <title>Authentication Method Reference Values</title>
+    <author fullname="M. Jones" initials="M." surname="Jones"/>
+    <author fullname="P. Hunt" initials="P." surname="Hunt"/>
+    <author fullname="A. Nadalin" initials="A." surname="Nadalin"/>
+    <date month="June" year="2017"/>
+    <abstract>
+      <t>The "amr" (Authentication Methods References) claim is defined and registered in the IANA "JSON Web Token Claims" registry, but no standard Authentication Method Reference values are currently defined. This specification establishes a registry for Authentication Method Reference values and defines an initial set of Authentication Method Reference values.</t>
+    </abstract>
+  </front>
+  <seriesInfo name="RFC" value="8176"/>
+  <seriesInfo name="DOI" value="10.17487/RFC8176"/>
+</reference>
+
       <!-- Reference from https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8996.xml -->
 
 <reference anchor="RFC8996" target="https://www.rfc-editor.org/info/rfc8996">
@@ -8753,6 +8770,16 @@
         </front>
       </reference>
 
+      <reference anchor="IANA.AMR" target="https://www.iana.org/assignments/authentication-method-reference-values">
+        <front>
+          <title>Authentication Method Reference Values</title>
+          <author>
+            <organization>IANA</organization>
+          </author>
+	  <date/>
+        </front>
+      </reference>
+
       <reference anchor="RFC20" target="https://www.rfc-editor.org/info/rfc20">
 	<front>
 	  <title>ASCII format for Network Interchange</title>
@@ -8873,6 +8900,24 @@
   <seriesInfo name="BCP" value="35"/>
   <seriesInfo name="RFC" value="7595"/>
   <seriesInfo name="DOI" value="10.17487/RFC7595"/>
+</reference>
+
+      <!-- Reference from https://bib.ietf.org/public/rfc/bibxml/reference.RFC.9101.xml -->
+
+<reference anchor="RFC9101" target="https://www.rfc-editor.org/info/rfc9101">
+  <front>
+    <title>The OAuth 2.0 Authorization Framework: JWT-Secured Authorization Request (JAR)</title>
+    <author fullname="N. Sakimura" initials="N." surname="Sakimura"/>
+    <author fullname="J. Bradley" initials="J." surname="Bradley"/>
+    <author fullname="M. Jones" initials="M." surname="Jones"/>
+    <date month="August" year="2021"/>
+    <abstract>
+      <t>The authorization request in OAuth 2.0 described in RFC 6749 utilizes query parameter serialization, which means that authorization request parameters are encoded in the URI of the request and sent through user agents such as web browsers. While it is easy to implement, it means that a) the communication through the user agents is not integrity protected and thus, the parameters can be tainted, b) the source of the communication is not authenticated, and c) the communication through the user agents can be monitored. Because of these weaknesses, several attacks to the protocol have now been put forward.</t>
+      <t>This document introduces the ability to send request parameters in a JSON Web Token (JWT) instead, which allows the request to be signed with JSON Web Signature (JWS) and encrypted with JSON Web Encryption (JWE) so that the integrity, source authentication, and confidentiality properties of the authorization request are attained. The request can be sent by value or by reference.</t>
+    </abstract>
+  </front>
+  <seriesInfo name="RFC" value="9101"/>
+  <seriesInfo name="DOI" value="10.17487/RFC9101"/>
 </reference>
 
       <reference anchor="OpenID.Basic" target="https://openid.net/specs/openid-connect-basic-1_0.html">
@@ -9612,7 +9657,13 @@
 	-33
         <list style="symbols">
 	  <t>
-	    TBD
+	    Fixed #2025 - Removed "Pragma: no-cache" and changed "Cache-Control: no-cache, no-store" to "Cache-Control: no-store".
+	  </t>
+	  <t>
+	    Fixed #2028: Referenced IANA Authentication Method Reference Values registry and RFC 8176 for <spanx style="verb">amr</spanx> values.
+	  </t>
+	  <t>
+	    Fixed #2029: Referenced RFC 9101 where we define Request Objects.
 	  </t>
 	</list>
       </t>
