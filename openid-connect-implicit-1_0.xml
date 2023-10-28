@@ -24,7 +24,7 @@
 
   <front>
     <title abbrev="OpenID Connect Implicit Client Guide 1.0">OpenID Connect
-    Implicit Client Implementer's Guide 1.0 - draft 28</title>
+    Implicit Client Implementer's Guide 1.0 - draft 29</title>
 
     <author fullname="Nat Sakimura" initials="N." surname="Sakimura">
       <organization abbrev="NAT.Consulting">NAT.Consulting</organization>
@@ -66,7 +66,7 @@
       </address>
     </author>
 
-    <date day="30" month="September" year="2023" />
+    <date day="28" month="October" year="2023" />
 
     <workgroup>OpenID Connect Working Group</workgroup>
 
@@ -1896,7 +1896,7 @@
 	    delimited by a <spanx style="verb">#</spanx> character.  For example,
 	    <spanx style="verb">family_name#ja-Kana-JP</spanx> expresses the
 	    Family Name in Katakana in Japanese, which is commonly used to index
-	    and represent the phonetics of the Kanji representation of the same
+	    and represent the phonetics of the Kanji representation of the same name
 	    represented as <spanx style="verb">family_name#ja-Hani-JP</spanx>.
 	    As another example, both <spanx style="verb">website</spanx> and
 	    <spanx style="verb">website#de</spanx> Claim Values might be returned,
@@ -3175,7 +3175,7 @@
             <organization abbrev="Disney">Disney</organization>
           </author>
 
-	  <date day="30" month="September" year="2023" />
+	  <date day="28" month="October" year="2023" />
         </front>
       </reference>
 
@@ -3287,6 +3287,15 @@
 
     <section anchor="History" title="Document History">
       <t>[[ To be removed from the final document ]]</t>
+
+      <t>
+	-29
+        <list style="symbols">
+	  <t>
+	    Added a missing word to the Claims Languages and Scripts section.
+	  </t>
+	</list>
+      </t>
 
       <t>
 	-28
