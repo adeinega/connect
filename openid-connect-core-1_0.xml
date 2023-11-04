@@ -23,7 +23,7 @@
   <?rfc private="Draft" ?>
 
   <front>
-    <title abbrev="OpenID Connect Core 1.0">OpenID Connect Core 1.0 - draft 33 incorporating errata set 2</title>
+    <title abbrev="OpenID Connect Core 1.0">OpenID Connect Core 1.0 - draft 34 incorporating errata set 2</title>
 
     <author fullname="Nat Sakimura" initials="N." surname="Sakimura">
       <organization abbrev="NAT.Consulting (was at NRI)">NAT.Consulting</organization>
@@ -65,7 +65,7 @@
       </address>
     </author>
 
-    <date day="30" month="September" year="2023" />
+    <date day="28" month="October" year="2023" />
 
     <workgroup>OpenID Connect Working Group</workgroup>
 
@@ -983,6 +983,11 @@
 		  as defined in Section 2.1 of OAuth 2.0, and
 		  provided the OP allows the use of
 		  <spanx style="verb">http</spanx> Redirection URIs in this case.
+		  Also, if the Client is a native application,
+		  it MAY use the <spanx style="verb">http</spanx> scheme with
+		  <spanx style="verb">localhost</spanx> or the IP loopback literals
+		  <spanx style="verb">127.0.0.1</spanx> or <spanx style="verb">[::1]</spanx>
+		  as the hostname.
 		  The Redirection URI MAY use an alternate scheme,
 		  such as one that is intended to identify a callback into a native application.
 		</t>
@@ -3375,7 +3380,7 @@
 	  delimited by a <spanx style="verb">#</spanx> character.  For example,
 	  <spanx style="verb">family_name#ja-Kana-JP</spanx> expresses the
 	  Family Name in Katakana in Japanese, which is commonly used to index
-	  and represent the phonetics of the Kanji representation of the same
+	  and represent the phonetics of the Kanji representation of the same name
 	  represented as <spanx style="verb">family_name#ja-Hani-JP</spanx>.
 	  As another example, both <spanx style="verb">website</spanx> and
 	  <spanx style="verb">website#de</spanx> Claim Values might be returned,
@@ -8938,7 +8943,7 @@
 	    <organization abbrev="Disney">Disney</organization>
 	  </author>
 
-	  <date day="30" month="September" year="2023" />
+	  <date day="28" month="October" year="2023" />
 	</front>
       </reference>
 
@@ -8966,7 +8971,7 @@
 	    <organization abbrev="Disney">Disney</organization>
 	  </author>
 
-	  <date day="30" month="September" year="2023" />
+	  <date day="28" month="October" year="2023" />
 	</front>
       </reference>
 
@@ -9646,6 +9651,18 @@
 
     <section anchor="History" title="Document History">
       <t>[[ To be removed from the approved errata ]]</t>
+
+      <t>
+	-34
+        <list style="symbols">
+	  <t>
+	    Also applied the loopback wording from the fix to #2026 to the Authorization Code Flow.
+	  </t>
+	  <t>
+	    Added a missing word to the Claims Languages and Scripts section.
+	  </t>
+	</list>
+      </t>
 
       <t>
 	-33
