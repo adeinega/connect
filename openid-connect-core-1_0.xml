@@ -710,6 +710,12 @@
 	per <xref target="SigEnc"/>.
       </t>
 
+      <t>
+	Omitted Claims and Claims with no value SHOULD be omitted
+	from the JWT Claims Set and not represented by
+	a JSON <spanx style="verb">null</spanx> value, unless otherwise specified.
+      </t>
+
       <figure>
 	<preamble>
 	  The following is a non-normative example of
