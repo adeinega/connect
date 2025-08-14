@@ -710,6 +710,13 @@
 	per <xref target="SigEnc"/>.
       </t>
 
+      <t>
+	Similar to <xref target="JSONSerialization"/>,
+	omitted Claims and Claims with no value SHOULD be
+	entirely omitted from the JWT Claims Set and not represented by
+	e.g. a JSON <spanx style="verb">null</spanx> value.
+      </t>
+
       <figure>
 	<preamble>
 	  The following is a non-normative example of
@@ -6290,9 +6297,9 @@
 	  values are represented as JSON strings.
 	  Numerical values are represented as JSON numbers.
 	  Boolean values are represented as JSON booleans.
-	  Omitted parameters and parameters with no value SHOULD be omitted
-	  from the object and not represented by
-	  a JSON <spanx style="verb">null</spanx> value, unless otherwise specified.
+	  Omitted parameters and parameters with no value SHOULD be
+	  entirely omitted from the object and not represented by
+	  e.g. a JSON <spanx style="verb">null</spanx> value.
 	  A parameter MAY have a JSON object or a JSON array as its value.
 	</t>
 
@@ -9506,6 +9513,7 @@
 	  <t>Justin Richer (justin@bspk.io), Bespoke Engineering (was at MITRE)</t>
 	  <t>Nat Sakimura (nat@nat.consulting), NAT.Consulting (was at NRI)</t>
 	  <t>Luke Shepard (luke@lukeshepard.com), Facebook</t>
+	  <t>Filip Skokan (panva.ip@gmail.com), Okta</t>
 	  <t>Andreas &Aring;kre Solberg (Andreas.Solberg@sikt.no), Sikt (was at UNINET)</t>
 	  <t>Paul Tarjan (paul@paultarjan.com), Facebook</t>
 	</list>
