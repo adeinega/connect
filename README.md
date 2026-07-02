@@ -35,7 +35,7 @@ The full list of OpenID Connect Working Group specifications is at https://openi
 
 ---
 
-## 🛠 Contributing & Issue Tracking
+## Contributing & Issue Tracking
 
 This repository was migrated from https://bitbucket.org/openid/connect in June 2026.
 
