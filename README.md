@@ -9,7 +9,7 @@ The full list of OpenID Connect working group repositories is at https://openid.
 
 ## Specifications and Documents
 
-The specifications managed by this working group include, but are not limited to:
+These specifications are in this repository:
 
 * **OpenID Connect Core** – Defines the core OpenID Connect functionality: authentication built on top of OAuth 2.0
   and the use of claims to communicate information about the End-User.
