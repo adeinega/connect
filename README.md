@@ -7,7 +7,7 @@ The full list of OpenID Connect working group repositories is at https://openid.
 
 ---
 
-## 📄 Specifications & Documents
+## Specifications and Documents
 
 The specifications managed by this working group include, but are not limited to:
 
